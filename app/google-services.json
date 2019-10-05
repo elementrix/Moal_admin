@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "189584808509",
+    "firebase_url": "https://moal-admin.firebaseio.com",
+    "project_id": "moal-admin",
+    "storage_bucket": "moal-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:189584808509:android:73b2242db4e285ccd36854",
+        "android_client_info": {
+          "package_name": "com.e.moal_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "189584808509-pgveejkc4dvvhgb5gpdjbndgb9c61tm3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.e.moal_admin",
+            "certificate_hash": "4264ceb57841347ba1350b0a7ed9d16f95d94fb6"
+          }
+        },
+        {
+          "client_id": "189584808509-al85emdghm5tufl9g4q4cv8819ukflsf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJaBaFiyZsO3yBovvPBZ7XveAhyGxHlt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "189584808509-al85emdghm5tufl9g4q4cv8819ukflsf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
