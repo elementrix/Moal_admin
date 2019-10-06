@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBack"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/id"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="293dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
+        android:textColor="#EDF0F2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
 
     <EditText
         android:id="@+id/password"
@@ -26,6 +30,7 @@
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPersonName"
+        android:textColor="#EDF2F0"
         app:layout_constraintStart_toStartOf="@+id/id"
         app:layout_constraintTop_toBottomOf="@+id/id" />
 
@@ -34,7 +39,7 @@
         android:layout_width="220dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#B6090F"
+        android:backgroundTint="#FAAB1A"
         android:backgroundTintMode="multiply"
         android:text="로그인"
         android:textColor="#FFFFFF"
@@ -49,6 +54,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="12dp"
         android:text="아직 등록을 안하셨나요?"
+        android:textColor="#EDF2F0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,7 +68,7 @@
         android:text="등록하기"
         android:textAlignment="textEnd"
         android:textAllCaps="false"
-        android:textColor="#B6090F"
+        android:textColor="#FAAB1A"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.724"
@@ -70,16 +76,14 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_complete" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="333dp"
-        android:layout_height="226dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="12dp"
+        android:id="@+id/imageView2"
+        android:layout_width="399dp"
+        android:layout_height="276dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.099"
+        app:layout_constraintVertical_bias="0.112"
         app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
