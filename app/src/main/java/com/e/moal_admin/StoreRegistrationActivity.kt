@@ -11,10 +11,8 @@ import kotlinx.android.synthetic.main.activity_register.*
 import net.daum.mf.map.api.MapView
 import java.io.IOException
 import android.location.Address
-import android.util.Log
 import com.google.firebase.database.FirebaseDatabase
 import net.daum.mf.map.api.MapPOIItem
-import kotlinx.android.synthetic.main.activity_main.*
 import net.daum.mf.map.api.MapPoint
 
 
@@ -52,7 +50,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         /*검색 버튼을 누르면 입력한 주소 값을 좌표로 바꿔서 맵뷰에 점을 찍는다.
         그리고 맞으면 가게등록을 하라는 텍스트를 지도 밑에 붙여준다.*/
 
-        btn_store_search.setOnClickListener{
+        btn_address_search.setOnClickListener{
             /*어차피 입력한 텍스트가 listener 동작 중 바뀔일 없으니까 val, 마찬가지로 Geocoder도 */
             val geo = Geocoder(this)
 

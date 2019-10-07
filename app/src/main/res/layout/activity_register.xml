@@ -47,7 +47,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:ems="10"
-        android:hint="가게이름을 적으셔도 돼요"
+        android:hint="예시) 서울 홍익로 3길 8"
         android:inputType="textPersonName"
         android:textColor="#EDF2F0"
         android:textColorHint="#90EDF0F2"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btn_store_search"
+        android:id="@+id/btn_address_search"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:backgroundTint="#00FFFFFF"
@@ -114,17 +114,18 @@
 
     <EditText
         android:id="@+id/store_name"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
+        android:layout_width="289dp"
+        android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:ems="10"
-        android:textColor="#EDF2F0"
         android:hint="예시) 노랑통닭 홍대점 "
-        android:textColorHint="#90EDF0F2"
         android:inputType="textPersonName"
+        android:textColor="#EDF2F0"
+        android:textColorHint="#90EDF0F2"
         app:layout_constraintBottom_toTopOf="@id/store_register_txt2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/store_register_txt3" />
 
@@ -156,5 +157,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
+
+    <ImageButton
+        android:id="@+id/btn_store_search"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/store_register_txt2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_register_txt3"
+        app:layout_constraintVertical_bias="0.524"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
