@@ -1,27 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBack"
     tools:context=".StoreRegistrationActivity">
 
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/store_registration"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가게이름" />
+        android:fontFamily="@font/lemon"
+        android:text="Store Enroll"
+        android:textColor="#FAAB1A"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <EditText
         android:id="@+id/store_finding"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="327dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
         android:ems="10"
         android:hint="가게 주소 검색"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColorHint="#90EDF0F2"
+        app:layout_constraintBottom_toTopOf="@+id/map_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_check"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="가게 등록" />
-</LinearLayout>
+        android:backgroundTint="#FAAB1A"
+        android:text="가게 등록"
+        android:textColor="#EDF0F2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <RelativeLayout
+        android:id="@+id/map_view"
+        android:layout_width="0dp"
+        android:layout_height="191dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403"
+        tools:context=".StoreRegistrationActivity"></RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/store_register_txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp"
+        android:text="# 등록을 위해 가게 주소를 검색해 주세요"
+        android:textColor="#EDF0F2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/store_finding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.192"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_registration" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
