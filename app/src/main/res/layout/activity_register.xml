@@ -40,6 +40,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
+    <ImageButton
+        android:id="@+id/btn_store_search"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/store_register_txt2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_register_txt3"
+        app:layout_constraintVertical_bias="0.524"
+        app:srcCompat="@android:drawable/ic_menu_search" />
+
     <EditText
         android:id="@+id/store_finding"
         android:layout_width="289dp"
@@ -51,6 +64,7 @@
         android:inputType="textPersonName"
         android:textColor="#EDF2F0"
         android:textColorHint="#90EDF0F2"
+        android:imeOptions="actionSearch"
         app:layout_constraintBottom_toTopOf="@id/map_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -123,6 +137,7 @@
         android:inputType="textPersonName"
         android:textColor="#EDF2F0"
         android:textColorHint="#90EDF0F2"
+        android:imeOptions="actionSearch"
         app:layout_constraintBottom_toTopOf="@id/store_register_txt2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -132,7 +147,7 @@
     <TextView
         android:id="@+id/address_check_txt"
         android:layout_width="254dp"
-        android:layout_height="21dp"
+        android:layout_height="40dp"
         android:layout_marginTop="12dp"
         android:textAlignment="textEnd"
         android:textColor="#FAAB1A"
@@ -157,18 +172,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
-
-    <ImageButton
-        android:id="@+id/btn_store_search"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/store_register_txt2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/store_register_txt3"
-        app:layout_constraintVertical_bias="0.524"
-        app:srcCompat="@android:drawable/ic_menu_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
