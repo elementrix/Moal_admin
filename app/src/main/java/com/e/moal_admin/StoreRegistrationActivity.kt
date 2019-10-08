@@ -12,9 +12,14 @@ import net.daum.mf.map.api.MapView
 import java.io.IOException
 import android.location.Address
 import android.util.Log
+import android.view.KeyEvent
 import com.google.firebase.database.FirebaseDatabase
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
+import android.view.inputmethod.EditorInfo
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 class StoreRegistrationActivity : AppCompatActivity() {
@@ -59,10 +64,24 @@ class StoreRegistrationActivity : AppCompatActivity() {
         val geo = Geocoder(this)
 
 
+        /*3차로 추가한 기능임-> 키보드에서 검색버튼으로 접근해서 검색 누를 수 있도록 함*/
+        storeName.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_SEARCH -> btn_store_search.performClick()
+            }
+            true
+        })
 
+        storeAddress.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+            when (actionId) {
+                EditorInfo.IME_ACTION_SEARCH -> btn_address_search.performClick()
+            }
+            true
+        })
 
         /*2차로 추가한 기능임 -> 가게이름을 쳤을때 위도 경도로 바꿔주고, 이를 다시 주소로 변환해서
         바로 주소입력 없더라도 확인하고 등록할 수 있도록 하는 기능을 넣어볼까 함*/
+
         btn_store_search.setOnClickListener {
             try {
                 Location = geo.getFromLocationName( storeName.getText().toString(), 1)
