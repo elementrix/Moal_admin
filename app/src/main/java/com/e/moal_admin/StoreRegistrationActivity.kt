@@ -2,6 +2,7 @@ package com.e.moal_admin
 
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.location.Geocoder
 import android.os.Bundle
@@ -18,7 +19,9 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 
 
 class StoreRegistrationActivity : AppCompatActivity() {
@@ -28,6 +31,8 @@ class StoreRegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        val intent = Intent(this, FbReadingActivity::class.java)
 
         /*주소에대한 위치가 맞는지 물어보고 맞으면 등록하거나 아니면 그런 주소 없다고 함*/
         var checkTxt: TextView = address_check_txt
@@ -55,7 +60,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         /*daum map view를 띄운다 setDaumMapApiKey가 쓰이진 않지만 안쓰면 Black view에러 남 (업데이트 된지 얼마 안되서 그런가 봄)
         데스크탑에서 코드 업로드 할 경우 네이티브 앱 키 = e4b214a56c02f90f1c751c065913ed36*/
         val mapView = MapView(this)
-        mapView.setDaumMapApiKey("5a066a8885477fc248bead6144c637b0")
+        mapView.setDaumMapApiKey("e4b214a56c02f90f1c751c065913ed36")
         val mapViewContainer = map_view
         mapViewContainer.addView(mapView)
 
@@ -117,6 +122,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+            closeKeyboard()
         }
 
         /*검색 버튼을 누르면 입력한 주소 값을 좌표로 바꿔서 맵뷰에 점을 찍는다.
@@ -157,11 +163,9 @@ class StoreRegistrationActivity : AppCompatActivity() {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+            closeKeyboard()
         }
         /*검색버튼 끝*/
-
-
-
 
 
         /*가게등록 버튼 */
@@ -189,6 +193,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
                     filledCheck.setText("")
                     writeNewStore(storeName.getText().toString(), storeAddress.getText().toString(), storeName.getText().toString())
                     toast("DB에 입력합니다.")
+                    startActivity(intent)
                 }
             }
         }

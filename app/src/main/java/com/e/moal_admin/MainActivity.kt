@@ -11,7 +11,7 @@ import android.util.Base64
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_main.*
 import java.security.MessageDigest
@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     val database = FirebaseDatabase.getInstance().reference
     var number =1
+    var rootRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+    val dirFire: DatabaseReference = rootRef.child("노랑통닭 홍대점")
 
     //request 값으로 받아올 변수를 설정(바꿀 필요없으므로 val)
     private val PERMISSIONS_REQUEST_CODE = 100
@@ -87,6 +89,21 @@ class MainActivity : AppCompatActivity() {
         register.setOnClickListener {
             startActivity(intent)
         }
+
+        dirFire.child("StoreInfo").addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(p0: DataSnapshot) {
+                val info: StoreInfo? = p0.getValue(StoreInfo::class.java)
+                if (info != null) {
+                    Log.d("Jooan","Storinfo: name: "+info.name+" Address: "+info.Address )
+                }else{
+                    Log.d("Jooan","Storinfo fail")
+                }
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
 
     }
 
