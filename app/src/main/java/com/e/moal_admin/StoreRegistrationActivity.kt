@@ -1,6 +1,7 @@
 package com.e.moal_admin
 
 
+import android.content.Context
 import android.graphics.Color
 import android.location.Geocoder
 import android.os.Bundle
@@ -12,14 +13,12 @@ import net.daum.mf.map.api.MapView
 import java.io.IOException
 import android.location.Address
 import android.util.Log
-import android.view.KeyEvent
 import com.google.firebase.database.FirebaseDatabase
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import android.view.inputmethod.EditorInfo
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.inputmethod.InputMethodManager
+
 
 
 class StoreRegistrationActivity : AppCompatActivity() {
@@ -67,14 +66,20 @@ class StoreRegistrationActivity : AppCompatActivity() {
         /*3차로 추가한 기능임-> 키보드에서 검색버튼으로 접근해서 검색 누를 수 있도록 함*/
         storeName.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
             when (actionId) {
-                EditorInfo.IME_ACTION_SEARCH -> btn_store_search.performClick()
+                EditorInfo.IME_ACTION_SEARCH -> {
+                    btn_store_search.performClick()
+                    closeKeyboard()
+                }
             }
             true
         })
 
         storeAddress.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
             when (actionId) {
-                EditorInfo.IME_ACTION_SEARCH -> btn_address_search.performClick()
+                EditorInfo.IME_ACTION_SEARCH -> {
+                    btn_address_search.performClick()
+                    closeKeyboard()
+                }
             }
             true
         })
@@ -142,12 +147,12 @@ class StoreRegistrationActivity : AppCompatActivity() {
                     /*주소 등록했으니 이제는 등록버튼 눌러도 됩니다 하고 바꿔주는 변수*/
                     isAddressChecked = true
 
-                    checkTxt.setText("이 위치가 맞나요? 맞으면 등록을 진행해 주세요")
+                    checkTxt.setText("이 위치가 맞나요? 맞으면 등록을 진행해 주세요\n아니라면 주소를 수정하시고 다시 검색해 주세요")
                 } else {
 
                     /*이상한 주소 입력하면 다시 false*/
                     isAddressChecked = false
-                    checkTxt.setText("존재하지 않는 주소 입니다. 다시 입력해 주세요")
+                    checkTxt.setText("존재하지 않는 주소 입니다. 다시 입력해 주세요\n아니라면 주소를 수정하시고 다시 검색해 주세요")
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -192,6 +197,15 @@ class StoreRegistrationActivity : AppCompatActivity() {
 
     private fun toast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    /*어느 상황에서든 키보드를 내려주는 함수*/
+    private fun closeKeyboard() {
+        var view = this.currentFocus
+        if(view != null) {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     private fun writeNewStore (userId: String, address: String, name: String){
