@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance().reference
     var number =1
     var rootRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
-    val dirFire: DatabaseReference = rootRef.child("노랑통닭 홍대점")
+    val dirFire: DatabaseReference = rootRef.child("노랑통닭 개화산점")
 
     //request 값으로 받아올 변수를 설정(바꿀 필요없으므로 val)
     private val PERMISSIONS_REQUEST_CODE = 100

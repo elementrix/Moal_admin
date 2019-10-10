@@ -32,7 +32,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val intent = Intent(this, FbReadingActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
 
         /*주소에대한 위치가 맞는지 물어보고 맞으면 등록하거나 아니면 그런 주소 없다고 함*/
         var checkTxt: TextView = address_check_txt
@@ -60,7 +60,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         /*daum map view를 띄운다 setDaumMapApiKey가 쓰이진 않지만 안쓰면 Black view에러 남 (업데이트 된지 얼마 안되서 그런가 봄)
         데스크탑에서 코드 업로드 할 경우 네이티브 앱 키 = e4b214a56c02f90f1c751c065913ed36*/
         val mapView = MapView(this)
-        mapView.setDaumMapApiKey("e4b214a56c02f90f1c751c065913ed36")
+        mapView.setDaumMapApiKey("5a066a8885477fc248bead6144c637b0")
         val mapViewContainer = map_view
         mapViewContainer.addView(mapView)
 
@@ -109,7 +109,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
                             if(Location.size==0) {
                                 checkTxt.setText("자동으로 주소를 변환할 수 없습니다.\n수동으로 주소를 입력해주세요.")
                             }else{
-                                storeAddress.setText(Location.get(0).getAddressLine(0).toString())
+                                storeAddress.setText(Location.get(0).getAddressLine(0).toString().trim())
                                 btn_address_search.performClick()
                             }
                         }
@@ -191,8 +191,8 @@ class StoreRegistrationActivity : AppCompatActivity() {
                     filledCheck.setText("가게이름을 기입해 주세요")
                 }else{
                     filledCheck.setText("")
-                    writeNewStore(storeName.getText().toString(), storeAddress.getText().toString(), storeName.getText().toString())
-                    toast("DB에 입력합니다.")
+                    writeNewStore(storeName.getText().toString().trim(), storeAddress.getText().toString().trim(), storeName.getText().toString().trim())
+                    //toast("DB에 입력합니다.")
                     startActivity(intent)
                 }
             }
