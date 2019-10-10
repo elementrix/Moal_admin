@@ -19,9 +19,6 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 
 
 class StoreRegistrationActivity : AppCompatActivity() {
@@ -32,7 +29,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, PartRegistrationActivity::class.java)
 
         /*주소에대한 위치가 맞는지 물어보고 맞으면 등록하거나 아니면 그런 주소 없다고 함*/
         var checkTxt: TextView = address_check_txt

@@ -1,5 +1,6 @@
 package com.e.moal_admin
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
@@ -16,6 +17,9 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
+
+//import com.rey.material.app.Dialog
+//import com.rey.material.app.DialogFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,6 +38,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val mDialog = Dialog(this,3)
+//
+//        mDialog.applyStyle(3)
+//            .title("Example")
+//            .positiveAction("OK")
+//            .negativeAction("CANCEL")
+//            .cancelable(true)
+//            .show()
+//
+//        val builder: Builder
+//        newInstance(builder)
 
         /*카카오 맵 사용시 key hash를 Log로 출력*/
         try {
@@ -99,7 +115,6 @@ class MainActivity : AppCompatActivity() {
                     Log.d("Jooan","Storinfo fail")
                 }
             }
-
             override fun onCancelled(p0: DatabaseError) {
 
             }
@@ -139,4 +154,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+//    interface Builder {
+//        fun build(context: Context): com.rey.material.app.Dialog
+//        fun onPositiveActionClicked(fragment: DialogFragment)
+//        fun onNegativeActionClicked(fragment: DialogFragment)
+//        fun onNeutralActionClicked(fragment: DialogFragment)
+//    }
+//
+//    fun newInstance(builder: Builder) {}
 }
