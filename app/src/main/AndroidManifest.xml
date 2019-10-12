@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.e.moal_admin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 데스크탑에서 코드 업로드 할 경우 네이티브 앱 키=e4b214a56c02f90f1c751c065913ed36, 노트북: 5a066a8885477fc248bead6144c637b0 -->
+    <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="e4b214a56c02f90f1c751c065913ed36" />
 
-<!--    데스크탑에서 코드 업로드 할 경우 네이티브 앱 키=e4b214a56c02f90f1c751c065913ed36, 노트북: 5a066a8885477fc248bead6144c637b0-->
-    <meta-data android:name="com.kakao.sdk.AppKey" android:value="5a066a8885477fc248bead6144c637b0"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_moal"
@@ -14,7 +15,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".CalendarActivity"
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StoreRegistrationActivity"/>
-        <activity android:name=".PartRegistrationActivity"/>
+        <activity android:name=".StoreRegistrationActivity" />
+        <activity android:name=".PartRegistrationActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

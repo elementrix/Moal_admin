@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="nav_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:title="일정확인"
+            android:icon="@drawable/ic_action_home"
+            />
+        <item
+            android:id="@+id/registration"
+            android:title="파트등록"
+            android:icon="@drawable/ic_action_registration"
+            />
+        <item
+            android:id="@+id/notification"
+            android:title="일정신청허가"
+            android:icon="@drawable/ic_action_notification"
+            />
+    </group>
+    <item android:title="Controls">
+        <menu>
+            <item
+                android:id="@+id/setting"
+                android:title="설정"
+                android:icon="@drawable/ic_action_setting"
+                />
+            <item
+                android:id="@+id/logout"
+                android:title="로그아웃"
+                android:icon="@drawable/ic_action_logout"
+                />
+        </menu>
+    </item>
+
+
+</menu>

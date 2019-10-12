@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Moal_admin</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
+
+    <string name="menu_make_parttime">파트 및 스케줄 등록</string>
+    <string name="menu_check_parttime">신청확인 및 확정</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

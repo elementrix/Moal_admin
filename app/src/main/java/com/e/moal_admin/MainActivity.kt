@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.nio.channels.CancelledKeyException
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -66,7 +67,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val intent = Intent(this, StoreRegistrationActivity::class.java)
+        val intentStoreRegistrationActivity = Intent(this, StoreRegistrationActivity::class.java)
+        val intentCalendarActivity = Intent(this, CalendarActivity::class.java)
         // 이동할 화면을 지정
         // intent는 이동할 화면이므로 바뀌지 않음 따라서 val
 
@@ -100,10 +102,11 @@ class MainActivity : AppCompatActivity() {
         btn_complete.setOnClickListener{
             writeNewUser(userId = "userNo - "+ number ,name=id.text.toString(), email = password.text.toString())
             number++
+            startActivity(intentCalendarActivity)
         }
 
         register.setOnClickListener {
-            startActivity(intent)
+            startActivity(intentStoreRegistrationActivity)
         }
 
         dirFire.child("StoreInfo").addValueEventListener(object: ValueEventListener{

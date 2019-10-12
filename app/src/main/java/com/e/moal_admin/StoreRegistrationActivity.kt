@@ -19,6 +19,7 @@ import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 
 
 class StoreRegistrationActivity : AppCompatActivity() {
@@ -43,7 +44,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         var filledCheck: TextView = fill_check_txt
 
         /*가게이름 담는 변수 안변함 어차피*/
-        val storeName: TextView = store_name
+        val storeName: EditText = store_name
         val storeAddress: TextView = store_finding
 
         /*가게 좌표담는 double형 숫자 두개*/
@@ -55,9 +56,9 @@ class StoreRegistrationActivity : AppCompatActivity() {
         window.statusBarColor = Color.parseColor("#344955")
 
         /*daum map view를 띄운다 setDaumMapApiKey가 쓰이진 않지만 안쓰면 Black view에러 남 (업데이트 된지 얼마 안되서 그런가 봄)
-        데스크탑에서 코드 업로드 할 경우 네이티브 앱 키 = e4b214a56c02f90f1c751c065913ed36*/
+        데스크탑에서 코드 업로드 할 경우 네이티브 앱 키 = e4b214a56c02f90f1c751c065913ed36 노트북: e4b214a56c02f90f1c751c065913ed36*/
         val mapView = MapView(this)
-        mapView.setDaumMapApiKey("5a066a8885477fc248bead6144c637b0")
+        mapView.setDaumMapApiKey("e4b214a56c02f90f1c751c065913ed36")
         val mapViewContainer = map_view
         mapViewContainer.addView(mapView)
 
