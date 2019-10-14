@@ -30,7 +30,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val intent = Intent(this, PartRegistrationActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
 
         /*주소에대한 위치가 맞는지 물어보고 맞으면 등록하거나 아니면 그런 주소 없다고 함*/
         var checkTxt: TextView = address_check_txt
@@ -190,7 +190,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
                 }else{
                     filledCheck.setText("")
                     writeNewStore(storeName.getText().toString().trim(), storeAddress.getText().toString().trim(), storeName.getText().toString().trim())
-                    //toast("DB에 입력합니다.")
+                    toast("주소등록이 완료되었습니다.")
                     startActivity(intent)
                 }
             }
@@ -199,7 +199,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
     /*onCreate 끝*/
 
     private fun toast(msg: String) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
     /*어느 상황에서든 키보드를 내려주는 함수*/

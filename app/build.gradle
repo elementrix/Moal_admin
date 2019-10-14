@@ -56,7 +56,9 @@ dependencies {
 
     //design library
     implementation 'com.android.support:design'
-    implementation 'com.google.android.material:material:1.1.0-beta01'
+
+    //god taehyung
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
 }
 

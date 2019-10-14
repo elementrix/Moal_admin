@@ -1,18 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationFragment">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registration Fragment"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_centerInParent = "true"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/colorBack"
+        tools:context=".CalendarActivity">
+
+        <TextView
+            android:id="@+id/people_txt"
+            android:layout_width="226dp"
+            android:layout_height="26dp"
+            android:text="# 필요한 인원을 입력해 주세요"
+            android:textAlignment="center"
+            android:textColor="#EDF0F2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/people"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.051"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/check_mon" />
+
+        <CheckBox
+            android:id="@+id/check_sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="일"
+            android:textColor="#EDF0F2"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintLeft_toRightOf="@id/check_sat"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/days_txt" />
+
+        <TextView
+            android:id="@+id/days_txt"
+            android:layout_width="206dp"
+            android:layout_height="26dp"
+            android:text="# 필요한 요일을 골라주세요"
+            android:textAlignment="center"
+            android:textColor="#EDF0F2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/check_mon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.04"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/part_name" />
+
+        <CheckBox
+            android:id="@+id/check_fri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="금"
+            android:textColor="#EDF0F2"
+            app:layout_constraintLeft_toRightOf="@id/check_thr"
+            app:layout_constraintRight_toLeftOf="@id/check_sat"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintTop_toBottomOf="@id/days_txt"
+            tools:layout_editor_absoluteY="226dp" />
 
 
-</RelativeLayout>
+        <CheckBox
+            android:id="@+id/check_mon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="월"
+            android:textColor="#EDF0F2"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/check_tue"
+            app:layout_constraintTop_toBottomOf="@id/days_txt" />
+
+        <CheckBox
+            android:id="@+id/check_wed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="수"
+            android:textColor="#EDF0F2"
+            app:layout_constraintLeft_toRightOf="@id/check_tue"
+            app:layout_constraintRight_toLeftOf="@id/check_thr"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintTop_toBottomOf="@id/days_txt"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <CheckBox
+            android:id="@+id/check_tue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="화"
+            android:textColor="#EDF0F2"
+            app:layout_constraintLeft_toRightOf="@id/check_mon"
+            app:layout_constraintRight_toLeftOf="@id/check_wed"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintTop_toBottomOf="@id/days_txt"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <CheckBox
+            android:id="@+id/check_thr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="목"
+            android:textColor="#EDF0F2"
+            app:layout_constraintLeft_toRightOf="@id/check_wed"
+            app:layout_constraintRight_toLeftOf="@id/check_fri"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintTop_toBottomOf="@id/days_txt"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <CheckBox
+            android:id="@+id/check_sat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#EDF0F2"
+            android:checked="false"
+            android:text="토"
+            android:textColor="#EDF0F2"
+            app:layout_constraintLeft_toRightOf="@id/check_fri"
+            app:layout_constraintRight_toLeftOf="@id/check_sun"
+            app:layout_constraintBottom_toTopOf="@id/people_txt"
+            app:layout_constraintTop_toBottomOf="@id/days_txt"
+            tools:layout_editor_absoluteY="226dp" />
+
+        <EditText
+            android:id="@+id/part_name"
+            android:layout_width="320dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint="직무이름을 입력해 주세요 (예: 주방)"
+            android:inputType="textPersonName"
+            android:textColor="#EDF0F2"
+            android:textColorHint="#90EDF0F2"
+            app:layout_constraintBottom_toTopOf="@id/days_txt"
+            app:layout_constraintHorizontal_bias="0.296"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/part_name_txt" />
+
+        <EditText
+            android:id="@+id/people"
+            android:layout_width="320dp"
+            android:layout_height="46dp"
+            android:ems="10"
+            android:hint="숫자를 입력해 주세요 (예 1,2,3)"
+            android:inputType="textPersonName"
+            android:textColor="#EDF0F2"
+            android:textColorHint="#90EDF0F2"
+            app:layout_constraintBottom_toTopOf="@id/section_name_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.252"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/people_txt" />
+
+        <TextView
+            android:id="@+id/part_name_txt"
+            android:layout_width="206dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="73dp"
+            android:text="# 직무이름을 입력해 주세요"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/part_name"
+            app:layout_constraintHorizontal_bias="0.045"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FAAB1A"
+            android:text="확인"
+            android:textColor="#EDF0F2"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.95"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.976" />
+
+        <TextView
+            android:id="@+id/section_name_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="# 필요한 파트를 추가해 주세요"
+            android:textColor="#EDF0F2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/name_example"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/people" />
+
+        <TextView
+            android:id="@+id/name_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(예: 오픈, 미들, 마감)"
+            android:textColor="#B4EDF0F2"
+            app:layout_constraintBottom_toTopOf="@id/btn_part_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.089"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/section_name_txt" />
+
+        <ListView
+            android:id="@+id/part_time_list"
+            android:layout_width="387dp"
+            android:layout_height="67dp"
+            android:layout_marginBottom="110dp"
+            android:scrollbarSize="15dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_part_add" />
+
+        <ImageButton
+            android:id="@+id/btn_part_add"
+            android:layout_width="42dp"
+            android:layout_height="43dp"
+            android:backgroundTint="#00FFFFFF"
+            android:tint="#00FFFFFF"
+            app:layout_constraintBottom_toTopOf="@id/part_time_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.073"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_example"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,5 +1,6 @@
 package com.e.moal_admin
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +9,6 @@ import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_calendar.*
 import kotlinx.android.synthetic.main.app_bar_calendar.*
-import androidx.appcompat.app.ActionBarDrawerToggle
 
 class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -19,12 +19,13 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_calendar)
+
+        window.statusBarColor = Color.parseColor("#344955")
 
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
-        actionBar?.title = "Navigation Drawer"
-
+        
         val drawerToggle = object : androidx.appcompat.app.ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             (R.string.open), (R.string.close)
