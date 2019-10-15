@@ -3,6 +3,7 @@ package com.e.moal_admin
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
@@ -25,6 +26,7 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
 
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
+        actionBar?.setTitle("") //텍스트뷰로 센터맞추고 하기가 더 쉬워서 사용 안할거임
         
         val drawerToggle = object : androidx.appcompat.app.ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
@@ -55,8 +57,11 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         //now create related fragment
 
+        val title:TextView = fragment_title
+
         when (menuItem.itemId) {
             R.id.home -> {
+                title.setText("Home")
                 homeFragment = HomeFragment()
                 supportFragmentManager
                     .beginTransaction()
@@ -66,6 +71,7 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
             }
             // so this is our fragment code
             R.id.registration -> {
+                title.setText("Registration")
                 registrationFragment = RegistrationFragment()
                 supportFragmentManager
                     .beginTransaction()
@@ -74,6 +80,7 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
                     .commit()
             }
             R.id.notification -> {
+                title.setText("Notification")
                 notificationFragment = NotificationFragment()
                 supportFragmentManager
                     .beginTransaction()
