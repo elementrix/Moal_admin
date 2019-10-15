@@ -5,12 +5,12 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/home"
-            android:title="일정확인"
+            android:title="메인일정체크"
             android:icon="@drawable/ic_action_home"
             />
         <item
             android:id="@+id/registration"
-            android:title="파트등록"
+            android:title="알바파트등록"
             android:icon="@drawable/ic_action_registration"
             />
         <item

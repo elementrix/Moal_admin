@@ -27,8 +27,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".StoreRegistrationActivity" />
-        <activity android:name=".PartRegistrationActivity" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

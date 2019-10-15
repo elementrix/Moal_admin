@@ -213,6 +213,6 @@ class StoreRegistrationActivity : AppCompatActivity() {
 
     private fun writeNewStore (userId: String, address: String, name: String){
         val storeInfo = StoreInfo(address,name)
-        database.child(userId).child("StoreInfo").setValue(storeInfo)
+        database.child(userId).child("StoreInfo").push().setValue(storeInfo)
     }
 }

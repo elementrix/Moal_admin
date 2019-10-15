@@ -15,7 +15,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Modu Alba App"
+        android:text="가게이름 from FireBase"
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="20dp"
@@ -23,7 +23,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="alba"
+        android:text="관리자 아이디"
         android:textColor="#ffffff"
         android:textSize="18dp"
         />

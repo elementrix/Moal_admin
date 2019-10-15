@@ -1,9 +1,11 @@
 package com.e.moal_admin
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentTransaction
@@ -27,7 +29,7 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
         setSupportActionBar(toolbar)
         val actionBar = supportActionBar
         actionBar?.setTitle("") //텍스트뷰로 센터맞추고 하기가 더 쉬워서 사용 안할거임
-        
+
         val drawerToggle = object : androidx.appcompat.app.ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             (R.string.open), (R.string.close)
@@ -58,6 +60,8 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
         //now create related fragment
 
         val title:TextView = fragment_title
+        val intentMainActivity =  Intent(this, MainActivity::class.java)
+        //로그아웃에 필요함
 
         when (menuItem.itemId) {
             R.id.home -> {
@@ -97,14 +101,11 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
             }
+            */
             R.id.logout -> {
-                logoutFragment = LogoutFragment()
-                supportFragmentManager
-                    .beginTransaction()
-                    .replace(R.id.Frame_layout, logoutFragment)
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-                    .commit()
-            }*/
+                toast("로그아웃 되었습니다")
+                startActivity(intentMainActivity)
+            }
 
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -118,5 +119,9 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
         } else {
             super.onBackPressed()
         }
+    }
+
+    private fun toast(msg: String) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }
