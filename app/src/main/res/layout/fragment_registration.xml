@@ -173,7 +173,7 @@
             android:id="@+id/part_name_txt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
+            android:layout_marginTop="60dp"
             android:text="# 직무이름을 입력해 주세요"
             android:textAlignment="center"
             android:textColor="#FAAB1A"
@@ -198,7 +198,7 @@
             app:layout_constraintHorizontal_bias="0.95"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976" />
+            app:layout_constraintVertical_bias="0.98" />
 
         <TextView
             android:id="@+id/section_name_txt"
@@ -228,8 +228,8 @@
         <ListView
             android:id="@+id/part_time_list"
             android:layout_width="387dp"
-            android:layout_height="67dp"
-            android:layout_marginBottom="60dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="40dp"
             android:scrollbarSize="15dp"
             android:scrollbarStyle="insideInset"
             android:scrollbars="horizontal"
