@@ -12,10 +12,6 @@ import android.widget.NumberPicker
 import kotlinx.android.synthetic.main.dialog_set_part.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 
-
-/**
- * A simple [Fragment] subclass.
- */
 class RegistrationFragment : Fragment() {
 
     override fun onCreateView(
@@ -31,8 +27,10 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_part_add.setOnClickListener {
+        var partList =arrayListOf<JobInfo>()
+        var job : JobTimeInfo = JobTimeInfo()
 
+        btn_part_add.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             val dialogView = layoutInflater.inflate(R.layout.dialog_set_part, null, false)
             val dialogText = dialogView.findViewById<EditText>(R.id.dialog_part_name)
@@ -60,15 +58,19 @@ class RegistrationFragment : Fragment() {
             dialogEndMinPicker.wrapSelectorWheel = true
             dialogEndMinPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS //키보드로 수정하기 금지
 
-            val picked = dialogEndHourPicker.value
+            val pickedEndHour = dialogEndHourPicker.value
+            val pickedEndMin = dialogEndMinPicker.value
+            val pickedStartHour = dialogStartHourPicker.value
+            val pickedStartMin = dialogStartMinPicker.value
 
             builder.setView(dialogView)
                 .setPositiveButton("완료"){ dialogInterface, i ->
-
+                    job.startHour=pickedStartHour
+                    job.startMin=pickedStartMin
+                    job.endHour=pickedEndHour
+                    job.endMin=pickedEndMin
                 }
-                .setNegativeButton("취소"){ dialogInterface, i ->
-
-                }
+                .setNegativeButton("취소"){ dialogInterface, i -> }
                 .show()
         }
 
