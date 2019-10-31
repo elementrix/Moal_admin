@@ -21,7 +21,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 
-
 class StoreRegistrationActivity : AppCompatActivity() {
 
     val database = FirebaseDatabase.getInstance().reference
@@ -58,7 +57,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
         /*daum map view를 띄운다 setDaumMapApiKey가 쓰이진 않지만 안쓰면 Black view에러 남 (업데이트 된지 얼마 안되서 그런가 봄)
         데스크탑에서 코드 업로드 할 경우 네이티브 앱 키 = e4b214a56c02f90f1c751c065913ed36 노트북: e4b214a56c02f90f1c751c065913ed36*/
         val mapView = MapView(this)
-        mapView.setDaumMapApiKey("5a066a8885477fc248bead6144c637b0")
+        mapView.setDaumMapApiKey("e4b214a56c02f90f1c751c065913ed36")
         val mapViewContainer = map_view
         mapViewContainer.addView(mapView)
 

@@ -14,7 +14,10 @@
     </style>
 
     <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar" >
-        <item name="android:textColorPrimary">@color/colorYellow</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+        <!--To remove divider of the number picker-->
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

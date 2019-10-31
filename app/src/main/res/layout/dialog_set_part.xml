@@ -14,72 +14,75 @@
         android:layout_height="44dp"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="파트 이름을 입력해 주세요"
+        android:hint="예시) 오픈, 미들, 마감"
         android:inputType="textPersonName"
         android:textColorHint="#90EDF0F2"
+        android:textColor="#EDF0F2"
         app:layout_constraintBottom_toTopOf="@id/dialog_start_hour_picker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView3" />
+        app:layout_constraintTop_toBottomOf="@id/dialog_msg_partName" />
 
 
     <NumberPicker
         android:id="@+id/dialog_end_min_picker"
         android:layout_width="59dp"
-        android:layout_height="95dp"
+        android:layout_height="85dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="65dp"
         android:theme="@style/AppTheme.Picker"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dialog_end_hour_picker"
+        app:layout_constraintLeft_toRightOf="@id/dialog_msg_endhour"
+        app:layout_constraintRight_toLeftOf="@id/dialog_msg_endmin"
         app:layout_constraintTop_toBottomOf="@id/dialog_start_hour_picker" />
 
     <NumberPicker
         android:id="@+id/dialog_start_min_picker"
         android:layout_width="59dp"
-        android:layout_height="95dp"
+        android:layout_height="85dp"
         android:theme="@style/AppTheme.Picker"
         app:layout_constraintBottom_toTopOf="@id/dialog_end_hour_picker"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toEndOf="@+id/dialog_start_hour_picker"
+        app:layout_constraintLeft_toRightOf="@id/dialog_msg_starthour"
+        app:layout_constraintRight_toLeftOf="@id/dialog_msg_startmin"
         app:layout_constraintTop_toBottomOf="@id/dialog_part_name"
-        app:layout_constraintVertical_bias="0.505" />
+        app:layout_constraintVertical_bias="0.502" />
 
     <NumberPicker
         android:id="@+id/dialog_end_hour_picker"
         android:layout_width="59dp"
-        android:layout_height="95dp"
+        android:layout_height="85dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="65dp"
         android:theme="@style/AppTheme.Picker"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/dialog_end_time_txt"
-        app:layout_constraintRight_toLeftOf="@id/dialog_end_min_picker"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dialog_msg_endhour"
         app:layout_constraintTop_toBottomOf="@id/dialog_start_hour_picker" />
 
     <NumberPicker
         android:id="@+id/dialog_start_hour_picker"
         android:layout_width="59dp"
-        android:layout_height="95dp"
+        android:layout_height="85dp"
         android:layout_marginTop="20dp"
         android:theme="@style/AppTheme.Picker"
         app:layout_constraintBottom_toTopOf="@id/dialog_end_hour_picker"
-        app:layout_constraintLeft_toRightOf="@id/dialog_start_time_txt"
-        app:layout_constraintRight_toLeftOf="@id/dialog_start_min_picker"
+        app:layout_constraintHorizontal_bias="0.331"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dialog_msg_starthour"
         app:layout_constraintTop_toBottomOf="@id/dialog_part_name" />
 
     <TextView
         android:id="@+id/dialog_start_time_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="시작시간"
-        android:textColor="#EDF2F0"
-        android:textSize="18sp"
+        android:layout_marginRight="20dp"
+        android:text="부터"
+        android:textColor="#FAAB1A"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/dialog_end_hour_picker"
-        app:layout_constraintEnd_toStartOf="@+id/dialog_start_hour_picker"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintLeft_toRightOf="@id/dialog_msg_startmin"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
 
     <TextView
@@ -87,17 +90,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:text="종료시간"
-        android:textColor="#EDF2F0"
-        android:textSize="18sp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="65dp"
+        android:text="까지"
+        android:textColor="#FAAB1A"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/dialog_end_hour_picker"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker" />
+        app:layout_constraintLeft_toRightOf="@id/dialog_msg_endmin"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker"
+        app:layout_constraintVertical_bias="0.50" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/dialog_msg_partName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -110,5 +115,85 @@
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dialog_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="확인"
+        android:textColor="#FAAB1A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dialog_cancel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_end_min_picker" />
+
+    <TextView
+        android:id="@+id/dialog_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:text="취소"
+        android:textColor="#FAAB1A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/dialog_complete"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_end_min_picker" />
+
+    <TextView
+        android:id="@+id/dialog_msg_starthour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시"
+        android:textColor="#EDF2F0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_end_hour_picker"
+        app:layout_constraintLeft_toRightOf="@id/dialog_start_hour_picker"
+        app:layout_constraintRight_toLeftOf="@id/dialog_start_min_picker"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
+
+    <TextView
+        android:id="@+id/dialog_msg_startmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:text="분"
+        android:textColor="#EDF2F0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/dialog_end_hour_picker"
+        app:layout_constraintLeft_toRightOf="@+id/dialog_start_min_picker"
+        app:layout_constraintRight_toLeftOf="@id/dialog_start_time_txt"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
+
+    <TextView
+        android:id="@+id/dialog_msg_endhour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="65dp"
+        android:text="시"
+        android:textColor="#EDF2F0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/dialog_end_hour_picker"
+        app:layout_constraintRight_toLeftOf="@id/dialog_end_min_picker"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker" />
+
+    <TextView
+        android:id="@+id/dialog_msg_endmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="65dp"
+        android:text="분"
+        android:textColor="#EDF2F0"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/dialog_end_min_picker"
+        app:layout_constraintRight_toLeftOf="@id/dialog_end_time_txt"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
