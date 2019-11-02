@@ -170,11 +170,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
 
             filledCheck.setText("")
 
-            if(storeName.getText().toString().equals("")){
-                isNameChecked = false
-            }else{
-                isNameChecked = true
-            }
+            isNameChecked = !storeName.getText().toString().equals("")
             //질문# 이거 어떻게 줄이나요 문법좀여....
 
             if (!isAddressChecked) {

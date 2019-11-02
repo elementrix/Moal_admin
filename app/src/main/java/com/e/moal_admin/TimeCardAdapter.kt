@@ -26,6 +26,7 @@ class TimeCardAdapter(val timeList:ArrayList<JobTimeInfo>): RecyclerView.Adapter
             itemView.cardView_startTime.text =  data.startHour.toString()+" : "+data.startMin.toString()
             itemView.cardView_endTime.text = data.endHour.toString()+" : "+data.endMin.toString()
             itemView.partName.text = data.partName
+            itemView.cardView_people.text = data.requirePeopleNum.toString()+" 명"
         }
     }
 }

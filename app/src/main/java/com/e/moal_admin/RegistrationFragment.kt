@@ -9,7 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.ArrayRes
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_registration.*
 
@@ -30,7 +33,8 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var timeList =arrayListOf<JobTimeInfo>()
+        var timeList =arrayListOf<JobTimeInfo>() // 여러가지 파트타임  오픈, 미들 마감 등등을 넣어주기위한 timeList
+        var dayList = arrayListOf<String>() // 월, 화, 수, 목, 금, 토, 일 중 어떤날을 선택했는가
 
         //파트타임 추가 버튼 눌렀을 때
         btn_part_add.setOnClickListener {
@@ -42,6 +46,7 @@ class RegistrationFragment : Fragment() {
             val dialogStartMinPicker: NumberPicker = dialogView.findViewById(R.id.dialog_start_min_picker)
             val dialogEndHourPicker: NumberPicker = dialogView.findViewById(R.id.dialog_end_hour_picker)
             val dialogEndMinPicker: NumberPicker = dialogView.findViewById(R.id.dialog_end_min_picker)
+            val dialogRequiredNumber = dialogView.findViewById<EditText>(R.id.people)
 
             dialogStartHourPicker.minValue = 0
             dialogStartHourPicker.maxValue = 24
@@ -111,6 +116,8 @@ class RegistrationFragment : Fragment() {
                 jobTime.startMin=pickedStartMin
                 jobTime.endHour=pickedEndHour
                 jobTime.endMin=pickedEndMin
+                jobTime.requirePeopleNum= dialogRequiredNumber.getText().toString().toInt()
+
                 timeList.add(jobTime)
 
                 part_time_list.apply {
@@ -127,15 +134,45 @@ class RegistrationFragment : Fragment() {
                 dialog.dismiss()
             }
         }
+        //파트타임 추가 눌렀을때 클릭 리스너 끝
 
+        //전체 완료 눌렀을때 시작
+        btn_complete.setOnClickListener {
+            //체크박스 뭐뭐 눌렀는지 확인작업시작
+            val checkMon = check_mon
+            val checkTue = check_tue
+            val checkWed = check_wed
+            val checkThr = check_thr
+            val checkFri = check_fri
+            val checkSat = check_sat
+            val checkSun = check_sun
+
+            if(checkMon.isChecked){dayList.add("mon")}
+            if(checkTue.isChecked){dayList.add("tue")}
+            if(checkWed.isChecked){dayList.add("wed")}
+            if(checkThr.isChecked){dayList.add("thr")}
+            if(checkFri.isChecked){dayList.add("fri")}
+            if(checkSat.isChecked){dayList.add("sat")}
+            if(checkSun.isChecked){dayList.add("sun")}
+            //체크박스 뭐뭐 눌렀는지 확인작업 끝
+
+            //직무이름 가져오기 (part_name.getText().toString())
+            writeNewJob(timeList,dayList, part_name.getText().toString())
+        }
+        //전체 완료 눌렀을때 끝
     }
     private fun toast(msg: String) {
         Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
     }
 
-    private fun writeNewJob (userId: String, address: String, name: String){
-        val storeInfo = StoreInfo(address,name)
-        //이 노랑통닭 홍대점은 나중에 로그인 기능 생기면 유저가 가진 가게를 찾아가서 정보를 업데이트 하도록 할거임
-        database.child("노랑통닭 홍대점").child("WorkingPart").setValue(storeInfo)
+    private fun writeNewJob (jobTime: ArrayList<JobTimeInfo>,workDays: ArrayList<String>,jobName: String){
+        val jobInfo =JobInfo(jobTime,workDays,jobName)
+
+        for (i in jobInfo.workdays){  // 요일 수만큼 반복
+            for(j in jobInfo.jobTime){ // 파트수만큼 반복
+                database.child("노랑통닭 홍대점").child("WorkingPart").child(i).child(jobInfo.jobName).child(j.partName).setValue(j)
+            }
+        }
+
     }
 }

@@ -1,8 +1,7 @@
 package com.e.moal_admin
 
-class JobInfo (jobTime:ArrayList<JobTimeInfo>){
-    var jobTime = jobTime
-    val workdays = arrayListOf<String>()
-    var jobName = ""
-    var requirePeopleNum = 0
-}
+class JobInfo (
+    val jobTime:ArrayList<JobTimeInfo>,
+    val workdays : ArrayList<String>,
+    var jobName :String
+)

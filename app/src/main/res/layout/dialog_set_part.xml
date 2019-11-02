@@ -10,14 +10,14 @@
 
     <EditText
         android:id="@+id/dialog_part_name"
-        android:layout_width="264dp"
+        android:layout_width="240dp"
         android:layout_height="44dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="예시) 오픈, 미들, 마감"
         android:inputType="textPersonName"
-        android:textColorHint="#90EDF0F2"
         android:textColor="#EDF0F2"
+        android:textColorHint="#90EDF0F2"
         app:layout_constraintBottom_toTopOf="@id/dialog_start_hour_picker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,13 +28,14 @@
         android:id="@+id/dialog_end_min_picker"
         android:layout_width="59dp"
         android:layout_height="85dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:theme="@style/AppTheme.Picker"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/people_txt"
         app:layout_constraintLeft_toRightOf="@id/dialog_msg_endhour"
         app:layout_constraintRight_toLeftOf="@id/dialog_msg_endmin"
-        app:layout_constraintTop_toBottomOf="@id/dialog_start_hour_picker" />
+        app:layout_constraintTop_toBottomOf="@id/dialog_start_hour_picker"
+        app:layout_constraintVertical_bias="0.5" />
 
     <NumberPicker
         android:id="@+id/dialog_start_min_picker"
@@ -45,16 +46,16 @@
         app:layout_constraintLeft_toRightOf="@id/dialog_msg_starthour"
         app:layout_constraintRight_toLeftOf="@id/dialog_msg_startmin"
         app:layout_constraintTop_toBottomOf="@id/dialog_part_name"
-        app:layout_constraintVertical_bias="0.502" />
+        app:layout_constraintVertical_bias="0.455" />
 
     <NumberPicker
         android:id="@+id/dialog_end_hour_picker"
         android:layout_width="59dp"
         android:layout_height="85dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:theme="@style/AppTheme.Picker"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/people_txt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/dialog_msg_endhour"
         app:layout_constraintTop_toBottomOf="@id/dialog_start_hour_picker" />
@@ -63,7 +64,7 @@
         android:id="@+id/dialog_start_hour_picker"
         android:layout_width="59dp"
         android:layout_height="85dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:theme="@style/AppTheme.Picker"
         app:layout_constraintBottom_toTopOf="@id/dialog_end_hour_picker"
         app:layout_constraintHorizontal_bias="0.331"
@@ -83,23 +84,24 @@
         app:layout_constraintHorizontal_bias="0.355"
         app:layout_constraintLeft_toRightOf="@id/dialog_msg_startmin"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/dialog_end_time_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="10dp"
         android:text="까지"
         android:textColor="#FAAB1A"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/people_txt"
         app:layout_constraintLeft_toRightOf="@id/dialog_msg_endmin"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker"
-        app:layout_constraintVertical_bias="0.50" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/dialog_msg_partName"
@@ -126,7 +128,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@id/dialog_cancel"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_end_min_picker" />
+        app:layout_constraintTop_toBottomOf="@id/people" />
 
     <TextView
         android:id="@+id/dialog_cancel"
@@ -140,7 +142,7 @@
         app:layout_constraintHorizontal_bias="0.835"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/dialog_complete"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_end_min_picker" />
+        app:layout_constraintTop_toBottomOf="@id/people" />
 
     <TextView
         android:id="@+id/dialog_msg_starthour"
@@ -152,7 +154,8 @@
         app:layout_constraintBottom_toTopOf="@+id/dialog_end_hour_picker"
         app:layout_constraintLeft_toRightOf="@id/dialog_start_hour_picker"
         app:layout_constraintRight_toLeftOf="@id/dialog_start_min_picker"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/dialog_msg_startmin"
@@ -165,35 +168,84 @@
         app:layout_constraintBottom_toTopOf="@+id/dialog_end_hour_picker"
         app:layout_constraintLeft_toRightOf="@+id/dialog_start_min_picker"
         app:layout_constraintRight_toLeftOf="@id/dialog_start_time_txt"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_part_name"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/dialog_msg_endhour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="시"
         android:textColor="#EDF2F0"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/people_txt"
         app:layout_constraintLeft_toRightOf="@id/dialog_end_hour_picker"
         app:layout_constraintRight_toLeftOf="@id/dialog_end_min_picker"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker"
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/dialog_msg_endmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="10dp"
         android:text="분"
         android:textColor="#EDF2F0"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/people_txt"
         app:layout_constraintLeft_toRightOf="@+id/dialog_end_min_picker"
         app:layout_constraintRight_toLeftOf="@id/dialog_end_time_txt"
-        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker" />
+        app:layout_constraintTop_toBottomOf="@+id/dialog_start_hour_picker"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/people_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="# 필요한 인원을 입력해 주세요"
+        android:textAlignment="center"
+        android:textColor="#FAAB1A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/people"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.22"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialog_end_hour_picker" />
+
+    <EditText
+        android:id="@+id/people"
+        android:layout_width="240dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="65dp"
+        android:ems="10"
+        android:hint="숫자를 입력해 주세요 "
+        android:inputType="textPersonName"
+        android:textColor="#EDF0F2"
+        android:textColorHint="#90EDF0F2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/people_txt" />
+
+    <TextView
+        android:id="@+id/unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="65dp"
+        android:text="명"
+        android:textColor="#95EDF0F2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/people_txt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
