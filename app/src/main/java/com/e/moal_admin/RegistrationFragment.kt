@@ -11,8 +11,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.ArrayRes
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
+
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_registration.*
 

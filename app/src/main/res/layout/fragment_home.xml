@@ -4,26 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBack"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
-        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-            android:id="@+id/calendarView"
+        <io.blackbox_vision.materialcalendarview.view.CalendarView
+            android:id="@+id/calendar_view"
             android:layout_width="match_parent"
-            android:layout_height="320dp"
-            android:layout_marginTop="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            app:calendarBackgroundColor="@color/colorPrimary"
+            app:calendarButtonBackgroundColor="@color/colorPrimary"
+            app:calendarCurrentDayBackgroundColor="@color/colorYellow"
+            app:calendarCurrentDayTextColor="@color/colorAccent"
+            app:calendarDayOfMonthTextColor="@android:color/white"
+            app:calendarDayOfWeekTextColor="@android:color/darker_gray"
+            app:calendarDisabledDayBackgroundColor="@color/colorPrimary"
+            app:calendarDisabledDayTextColor="@android:color/darker_gray"
+            app:calendarIsMultiSelectDayEnabled="false"
+            app:calendarIsOverflowDatesVisible="true"
+            app:calendarSelectedDayBackgroundColor="@color/colorPrimary"
+            app:calendarTitleBackgroundColor="@color/colorPrimary"
+            app:calendarTitleTextColor="@color/colorAccent"
+            app:calendarWeekBackgroundColor="@color/colorPrimary"
+            app:calendarWeekendDays="saturday|sunday"
+            app:calendarWeekendTextColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:mcv_selectionColor="#FAAB1A"
-            app:mcv_showOtherDates="other_months"
-            app:mcv_tileSize="45dp" />
+            app:layout_constraintVertical_bias="0.0"></io.blackbox_vision.materialcalendarview.view.CalendarView>
+
+<!--        <com.prolificinteractive.materialcalendarview.MaterialCalendarView-->
+<!--            android:id="@+id/calendarView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="320dp"-->
+<!--            android:layout_marginTop="70dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            app:mcv_selectionColor="#FAAB1A"-->
+<!--            app:mcv_showOtherDates="other_months"-->
+<!--            app:mcv_tileSize="45dp" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
