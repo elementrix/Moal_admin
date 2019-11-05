@@ -26,16 +26,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val calendarView: io.blackbox_vision.materialcalendarview.view.CalendarView? = calendar_view
 
-        calendarView?.shouldAnimateOnEnter(true)
-            ?.setFirstDayOfWeek(Calendar.MONDAY)
-            ?.setOnDateClickListener(activity.onDateClick)
-            ?.setOnMonthChangeListener(this.onMonthChange)
-            ?.setOnDateLongClickListener(this.onDateLongClick)
-            ?.setOnMonthTitleClickListener(this.onMonthTitleClick)
-
-        calendarView?.update(Calendar.getInstance(Locale.getDefault()))
     }
 
 

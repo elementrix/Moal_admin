@@ -57,7 +57,7 @@ dependencies {
     //design library
     implementation 'com.android.support:design'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.github.BlackBoxVision:material-calendar-view:v1.5.8'
+
 
 }
 
