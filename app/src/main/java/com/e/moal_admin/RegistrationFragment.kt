@@ -10,7 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.ArrayRes
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_registration.*
@@ -156,7 +159,15 @@ class RegistrationFragment : Fragment() {
             //체크박스 뭐뭐 눌렀는지 확인작업 끝
 
             //직무이름 가져오기 (part_name.getText().toString())
-            writeNewJob(timeList,dayList, part_name.getText().toString())
+//            writeNewJob(timeList,dayList, part_name.getText().toString())
+//
+//            val navigationView : NavigationView = (activity as MainActivity).findViewById(R.id.nav_view)
+//            navigationView.menu.findItem(R.id.home).isChecked = true
+//
+//            // RecipeFragment로 화면이동
+//            val transaction : FragmentTransaction = (activity as MainActivity).supportFragmentManager.beginTransaction()
+//            transaction.add(R.id.Frame_layout, HomeFragment())
+//            transaction.commit()
         }
         //전체 완료 눌렀을때 끝
     }
