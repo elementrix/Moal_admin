@@ -24,6 +24,7 @@
             app:layout_constraintVertical_bias="0.0"
             app:mcv_selectionColor="#FAAB1A"
             app:mcv_showOtherDates="none"
+            app:mcv_arrowColor="@color/colorBack"
             app:mcv_tileHeight="37dp"
             app:mcv_tileSize="45dp"
             app:mcv_tileWidth="50dp" />
