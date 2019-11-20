@@ -16,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.dialog_set_part.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationFragment : Fragment() {
@@ -35,8 +36,8 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var timeList =arrayListOf<JobTimeInfo>() // 여러가지 파트타임  오픈, 미들 마감 등등을 넣어주기위한 timeList
-        var dayList = arrayListOf<String>() // 월, 화, 수, 목, 금, 토, 일 중 어떤날을 선택했는가
+        val timeList =arrayListOf<JobTimeInfo>() // 여러가지 파트타임  오픈, 미들 마감 등등을 넣어주기위한 timeList
+        val dayList = arrayListOf<String>() // 월, 화, 수, 목, 금, 토, 일 중 어떤날을 선택했는가
 
         //파트타임 추가 버튼 눌렀을 때
         btn_part_add.setOnClickListener {
@@ -49,6 +50,9 @@ class RegistrationFragment : Fragment() {
             val dialogEndHourPicker: NumberPicker = dialogView.findViewById(R.id.dialog_end_hour_picker)
             val dialogEndMinPicker: NumberPicker = dialogView.findViewById(R.id.dialog_end_min_picker)
             val dialogRequiredNumber = dialogView.findViewById<EditText>(R.id.people)
+            val dialogNextDayAlert = dialogView.findViewById<TextView>(R.id.dialog_nextday_alert)
+            val dialogMissing = dialogView.findViewById<TextView>(R.id.dialog_missing)
+            var minPickerVal : Array<String> = arrayOf("00","30")
 
             dialogStartHourPicker.minValue = 0
             dialogStartHourPicker.maxValue = 24
@@ -57,9 +61,11 @@ class RegistrationFragment : Fragment() {
             //0-24시로 만들어 줄거니까 최소 최대값 설정
 
             dialogStartMinPicker.minValue = 0
-            dialogStartMinPicker.maxValue = 59
+            dialogStartMinPicker.maxValue = minPickerVal.size-1
             dialogEndMinPicker.minValue = 0
-            dialogEndMinPicker.maxValue = 59
+            dialogEndMinPicker.maxValue = minPickerVal.size-1
+            dialogStartMinPicker.displayedValues = minPickerVal
+            dialogEndMinPicker.displayedValues = minPickerVal
             //0-59분으로 만들어 줄거니까 최소 최대값 설정
 
             dialogStartHourPicker.wrapSelectorWheel = true //무한루프 가능
@@ -72,9 +78,9 @@ class RegistrationFragment : Fragment() {
             dialogEndMinPicker.descendantFocusability = NumberPicker.FOCUS_BLOCK_DESCENDANTS //키보드로 수정하기 금지
 
             dialogStartHourPicker.setFormatter { i -> String.format("%02d",i) }
-            dialogStartMinPicker.setFormatter { i -> String.format("%02d",i) }
+//            dialogStartMinPicker.setFormatter { i -> String.format("%02d",i) }
             dialogEndHourPicker.setFormatter { i -> String.format("%02d",i) }
-            dialogEndMinPicker.setFormatter { i -> String.format("%02d",i) }
+//            dialogEndMinPicker.setFormatter { i -> String.format("%02d",i) }
             //각각의 다이얼 시간을 00, 01, ... , 24 이런식으로 보이게 만들어 줌
 
             var pickedEndHour = dialogEndHourPicker.value
@@ -83,18 +89,41 @@ class RegistrationFragment : Fragment() {
             var pickedStartMin = dialogStartMinPicker.value
 
 
-            dialogEndHourPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-                pickedEndHour = dialogEndHourPicker.value
-            }
-            dialogEndMinPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-                pickedEndMin = dialogEndMinPicker.value
-            }
             dialogStartHourPicker.setOnValueChangedListener { numberPicker, i, i2 ->
                 pickedStartHour = dialogStartHourPicker.value
+                pickedEndMin = dialogEndMinPicker.value
+                if(pickedStartHour*100+pickedStartMin>pickedEndHour*100+pickedEndMin){
+                    dialogNextDayAlert.setText("*다음날까지 입니다")
+                }else{
+                    dialogNextDayAlert.setText("")
+                }
             }
             dialogStartMinPicker.setOnValueChangedListener { numberPicker, i, i2 ->
                 pickedStartMin = dialogStartMinPicker.value
-            }//스크롤이 바뀔때마다 업데이트 해줄 수 있도록 리스너 등록
+                pickedEndMin = dialogEndMinPicker.value
+                if(pickedStartHour*100+pickedStartMin>pickedEndHour*100+pickedEndMin){
+                    dialogNextDayAlert.setText("*다음날까지 입니다")
+                }else{
+                    dialogNextDayAlert.setText("")
+                }
+            }
+            dialogEndHourPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                pickedEndHour = dialogEndHourPicker.value
+                if(pickedStartHour*100+pickedStartMin>pickedEndHour*100+pickedEndMin){
+                    dialogNextDayAlert.setText("*다음날까지 입니다")
+                }else{
+                    dialogNextDayAlert.setText("")
+                }
+            }
+            dialogEndMinPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                pickedEndMin = dialogEndMinPicker.value
+                if(pickedStartHour*100+pickedStartMin>pickedEndHour*100+pickedEndMin){
+                    dialogNextDayAlert.setText("*다음날까지 입니다")
+                }else{
+                    dialogNextDayAlert.setText("")
+                }
+            }
+            //스크롤이 바뀔때마다 업데이트 해줄 수 있도록 리스너 등록
 
 
             //찍은 시간을 저장하는 변수들 안바뀌니까 val
@@ -110,26 +139,55 @@ class RegistrationFragment : Fragment() {
 
             val dialogBtnComplete : TextView = dialogView.findViewById(R.id.dialog_complete)
             val dialogBtnCancel : TextView = dialogView.findViewById(R.id.dialog_cancel)//확인,취소 버튼
+            var missingCheck = true
 
             dialogBtnComplete.setOnClickListener{
-                var jobTime = JobTimeInfo()
-                jobTime.partName = dialogText.getText().toString()
-                jobTime.startHour=pickedStartHour
-                jobTime.startMin=pickedStartMin
-                jobTime.endHour=pickedEndHour
-                jobTime.endMin=pickedEndMin
-                jobTime.requirePeopleNum= dialogRequiredNumber.getText().toString().toInt()
-
-                timeList.add(jobTime)
-
-                part_time_list.apply {
-                    layoutManager = LinearLayoutManager(activity)
-                    adapter = TimeCardAdapter(timeList)
+                if(dialogText.getText().toString().equals("")){
+                    dialogMissing.setText("*파트이름을 적어주세요")
+                    missingCheck=false
+                }
+                if(pickedStartHour*100+pickedStartMin == pickedEndHour*100+pickedEndMin){
+                    dialogMissing.setText("*파트이름을 적어주세요")
+                    missingCheck=false
+                }
+                if(dialogRequiredNumber.getText().toString().equals("")){
+                    dialogMissing.setText("*인원을 입력해 주세요")
+                    missingCheck=false
                 }
 
-                Log.d("good",timeList[0].partName+"'s start,end time is: "+timeList[0].startHour+ ","+timeList[0].endHour)
+                if(missingCheck==false){
 
-                dialog.dismiss()
+                }else{
+                    var jobTime = JobTimeInfo()
+                    jobTime.partName = dialogText.getText().toString()
+                    jobTime.startHour=pickedStartHour
+                    jobTime.endHour=pickedEndHour
+
+                    if(pickedStartMin==0){
+                        jobTime.startMin=0
+                    } else {
+                        jobTime.startMin=30
+                    }
+                    if(pickedEndMin==0){
+                        jobTime.endMin=0
+                    } else {
+                        jobTime.endMin=30
+                    }
+
+                    jobTime.requirePeopleNum= dialogRequiredNumber.getText().toString().toInt()
+
+                    timeList.add(jobTime)
+
+                    part_time_list.apply {
+                        layoutManager = LinearLayoutManager(activity)
+                        adapter = TimeCardAdapter(timeList)
+                    }
+
+                    Log.d("good",timeList[0].partName+"'s start,end time is: "+timeList[0].startHour+ ","+timeList[0].endHour)
+
+                    dialog.dismiss()
+                }
+                missingCheck=true
             }
 
             dialogBtnCancel.setOnClickListener{

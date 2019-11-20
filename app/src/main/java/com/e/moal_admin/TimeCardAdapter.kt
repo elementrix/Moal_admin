@@ -23,8 +23,8 @@ class TimeCardAdapter(val timeList:ArrayList<JobTimeInfo>): RecyclerView.Adapter
     class ViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.part_time_cardview, parent, false)) {
         fun bind(data: JobTimeInfo) {
-            itemView.cardView_startTime.text =  data.startHour.toString()+" : "+data.startMin.toString()
-            itemView.cardView_endTime.text = data.endHour.toString()+" : "+data.endMin.toString()
+            itemView.cardView_startTime.text =  String.format("%02d",data.startHour)+" : "+String.format("%02d",data.startMin)
+            itemView.cardView_endTime.text = String.format("%02d",data.endHour)+" : "+String.format("%02d",data.endMin)
             itemView.partName.text = data.partName
             itemView.cardView_people.text = data.requirePeopleNum.toString()+" 명"
         }
