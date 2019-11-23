@@ -217,8 +217,8 @@ class RegistrationFragment : Fragment() {
             //체크박스 뭐뭐 눌렀는지 확인작업 끝
 
             //직무이름 가져오기 (part_name.getText().toString())
-//            writeNewJob(timeList,dayList, part_name.getText().toString())
-//
+            writeNewJob(timeList,dayList, part_name.getText().toString())
+
 //            val navigationView : NavigationView = (activity as MainActivity).findViewById(R.id.nav_view)
 //            navigationView.menu.findItem(R.id.home).isChecked = true
 //

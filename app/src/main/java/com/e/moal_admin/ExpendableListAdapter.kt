@@ -1,20 +1,24 @@
 package com.e.moal_admin
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.TextView
 
-class ExpendableListAdapter : BaseExpandableListAdapter(){
-    override fun getGroup(groupPosition: Int): Any {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+class ExpendableListAdapter(var context : Context?, var header : MutableList<String>, var body: MutableList<MutableList<String>>) : BaseExpandableListAdapter(){
+
+    override fun getGroup(groupPosition: Int) : String {
+        return header[groupPosition]
     }
 
     override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return true
     }
 
     override fun hasStableIds(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return false
     }
 
     override fun getGroupView(
@@ -22,20 +26,27 @@ class ExpendableListAdapter : BaseExpandableListAdapter(){
         isExpanded: Boolean,
         convertView: View?,
         parent: ViewGroup?
-    ): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    ): View? {
+        var convertView = convertView
+        if(convertView == null){
+            val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            convertView = inflater.inflate(R.layout.expandable_group,null)
+        }
+        val title = convertView?.findViewById<TextView>(R.id.el_group_title)
+        title?.text = getGroup(groupPosition)
+        return convertView
     }
 
     override fun getChildrenCount(groupPosition: Int): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return body[groupPosition].size
     }
 
-    override fun getChild(groupPosition: Int, childPosition: Int): Any {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getChild(groupPosition: Int, childPosition: Int): String {
+        return body[groupPosition][childPosition]
     }
 
     override fun getGroupId(groupPosition: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return groupPosition.toLong()
     }
 
     override fun getChildView(
@@ -44,16 +55,23 @@ class ExpendableListAdapter : BaseExpandableListAdapter(){
         isLastChild: Boolean,
         convertView: View?,
         parent: ViewGroup?
-    ): View {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    ): View? {
+        var convertView = convertView
+        if(convertView == null){
+            val inflater = context?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            convertView = inflater.inflate(R.layout.expandable_child,null)
+        }
+        val title = convertView?.findViewById<TextView>(R.id.el_group_title)
+        title?.text = getChild(groupPosition,childPosition)
+        return convertView
     }
 
     override fun getChildId(groupPosition: Int, childPosition: Int): Long {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return childPosition.toLong()
     }
 
     override fun getGroupCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return header.size
     }
 
 }

@@ -29,28 +29,24 @@
             app:mcv_tileSize="45dp"
             app:mcv_tileWidth="50dp" />
 
-        <TextView
-            android:id="@+id/dailyWorkersListView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:text="Hello this is just an experiment"
-            android:textAppearance="@style/TextAppearance.MaterialCalendarWidget.WeekDay"
-            android:textSize="24sp"
+
+        <ExpandableListView
+            android:background="@android:color/darker_gray"
+            android:id="@+id/dailyWorkersListView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/calendarView" />
+            app:layout_constraintTop_toBottomOf="@id/calendarView"
+            />
 
-<!--        <ExpandableListView-->
-<!--            android:id="@+id/dailyWorkersListView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
 
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintLeft_toLeftOf="parent"-->
-<!--            app:layout_constraintRight_toRightOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/calendarView" />-->
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -20,10 +20,6 @@ import java.nio.channels.CancelledKeyException
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
-//import com.rey.material.app.Dialog
-//import com.rey.material.app.DialogFragment
-
-
 class MainActivity : AppCompatActivity() {
 
     val database = FirebaseDatabase.getInstance().reference
@@ -42,17 +38,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val mDialog = Dialog(this,3)
-//
-//        mDialog.applyStyle(3)
-//            .title("Example")
-//            .positiveAction("OK")
-//            .negativeAction("CANCEL")
-//            .cancelable(true)
-//            .show()
-//
-//        val builder: Builder
-//        newInstance(builder)
+//        try {     // 해시키 "nlZtw5R/zALjj6HQQ2UiopGbT7k="
+//            val info = this.packageManager.getPackageInfo(this.packageName, PackageManager.GET_SIGNATURES)
+//            for (signature in info.signatures) {
+//                val md = MessageDigest.getInstance("SHA")
+//                md.update(signature.toByteArray())
+//                val sign = Base64.encodeToString(md.digest(), Base64.DEFAULT)
+//                Log.e("test", "hash key : $sign")
+//                //Toast.makeText(getApplicationContext(),sign,     Toast.LENGTH_LONG).show();
+//            }
+//        } catch (e: PackageManager.NameNotFoundException) {
+//            Log.e("test", "hash key1 : $e")
+//        } catch (e: NoSuchAlgorithmException) {
+//            Log.e("test", "hash key2 : $e")
+//        }
 
         val intentStoreRegistrationActivity = Intent(this, StoreRegistrationActivity::class.java)
         val intentCalendarActivity = Intent(this, CalendarActivity::class.java)
