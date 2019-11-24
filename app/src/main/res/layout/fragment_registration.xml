@@ -199,7 +199,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/part_time_list"
             android:layout_width="387dp"
-            android:layout_height="150dp"
+            android:layout_height="170dp"
             android:layout_marginBottom="40dp"
             android:scrollbarSize="15dp"
             android:scrollbarStyle="insideInset"

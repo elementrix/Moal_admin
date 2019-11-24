@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.collections.ArrayList
 
+
+
 /**
  * A simple [Fragment] subclass.
  */
@@ -27,8 +29,7 @@ class HomeFragment : Fragment() {
 
     var rootRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
 
-    var dayChildrenCount : Long = 0 // dayChildrenCount의 경우 DB에서 읽어온 자료가 저장되는 자료인데 onViewCreated 이후에도 살아남아야 하므로 밖에다가 저장
-    var partChildrenCount : ArrayList<Long> = ArrayList() // 나중에 listView를 꾸리기 위한 큰그림 변수
+    var childrenCount : Long = 0 // childrenCount의 경우 DB에서 읽어온 자료가 저장되는 자료인데 onViewCreated 이후에도 살아남아야 하므로 밖에다가 저장
     var positionNames :String = "" // 마찬가지
     var partNames : String = "" // 마찬가지2
 
@@ -50,6 +51,7 @@ class HomeFragment : Fragment() {
         val partHeader : MutableList<String> = ArrayList() // 오픈, 마감 등 파트이름
 
         val positionBody : MutableList<MutableList<MutableList<String>>> = ArrayList()
+        val partNamesOrderedList : MutableList<MutableList<String>> = ArrayList()
 
         calendar.setOnDateChangedListener(OnDateSelectedListener() { calendar: MaterialCalendarView, calendarDay: CalendarDay, b: Boolean ->
             positionHeader.clear()
@@ -75,37 +77,46 @@ class HomeFragment : Fragment() {
                 "Sun" -> { day_kor = "일" }
             }
 
-//            var list: ListView = dailyWorkersListView
-//            var listItems : MutableList<Any> = ArrayList()
+            var list:LinearLayout = dailyWorkersListView
+            var expandableListItems : MutableList<ExpandableListView> = ArrayList()
+            var headerListitems : MutableList<TextView> = ArrayList()
 
             dirFire.child("WorkingPart").child(day_kor).addValueEventListener(object: ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    dayChildrenCount = p0.childrenCount
+
+                    list.removeAllViews()
+                    partNamesOrderedList.clear()
+                    expandableListItems.clear()
+
+                    childrenCount = p0.childrenCount // 서빙, 주방등등이 몇개인지
+
                     for (x in p0.children){ // 서빙, 주방 등등 목록을 읽어오고자 하는 부분
                         val partBody : MutableList<MutableList<String>>  = ArrayList() // 어차피 다른 날을 클릭하면 바뀔애들이니 더 상위레벨에서 정의할 필요 없음, 또한 매번 새로 만들어서 넣어줘야 하는 소모적인 녀석이니 여기에서 선언
+                        val eachPartList: MutableList<String> = ArrayList() // 파트들의 구분을 위해 만들어주는 변수
 
                         positionNames = p0.child(x.key.toString()).key.toString()
                         Log.d("jooan","position is : "+positionNames) // 주방, 서빙 등등
 
                         positionHeader.add(positionNames) // 목록구성중 제일 윗단계
 
-                        /*--------------------DB 읽기에는 전혀 관련없는 부분. 디버깅 시 건들지 말 것 (여기부터)---------------------------*/
-                        val partChildrenCounting : Long = p0.child(x.key.toString()).childrenCount
-                        partChildrenCount.add(partChildrenCounting)
-                        /*--------------------DB 읽기에는 전혀 관련없는 부분. 디버깅 시 건들지 말 것 (여기까지)---------------------------*/
+//                        /*--------------------DB 읽기에는 전혀 관련없는 부분. 디버깅 시 건들지 말 것 (여기부터)---------------------------*/
+//                        val partChildrenCounting : Long = p0.child(x.key.toString()).childrenCount
+//                        partChildrenCount.add(partChildrenCounting)
+//                        /*--------------------DB 읽기에는 전혀 관련없는 부분. 디버깅 시 건들지 말 것 (여기까지)---------------------------*/
 
                         for (y in x.children){ // 오픈, 마감 등을 표시하고, 그 안에 들어가서 request목록을 읽어오고자 하는 부분
 
                             val eachPartWorkerList: MutableList<String> = ArrayList() // 실제로 일하는 사람들 목록이 담김, 매번 새로 만들어야 가리키는 요소가 달라짐
+
                             partNames = y.key.toString()
                             Log.d("jooan","part is :"+partNames) // 마감, 오픈 마감 등등
                             partHeader.add(partNames)
 
-                            for(z in y.child("RequestList").children){ // request 목록에 있는 사람들 읽어옴
+                            eachPartList.add(partNames) // 오픈 미들 마감등등 을 더해줌
 
+                            for(z in y.child("RequestList").children){ // request 목록에 있는 사람들 읽어옴
                                 eachPartWorkerList.add(z.key.toString())
                             }
-                           // partBodyTmp.add(eachPartWorkerList)
 
                             partBody.add(eachPartWorkerList) // 특정 파트(오픝,미들)에서 일하는 사람들의 목록을 넣어줌
 
@@ -114,30 +125,44 @@ class HomeFragment : Fragment() {
                             /*아직 if 문으로 accepted 안 걸러줌*/
                         }
                         positionBody.add(partBody) // 특정 포지션(서빙,주방)에서 일하는 사람들의 목록을 넣어줌
+                        partNamesOrderedList.add(eachPartList)
                         Log.d("jooan","the final form of part body is : "+partBody+", "+partHeader)
+                        Log.d("jooan","!!New!! Npw the partNameOrderedList is : " + partNamesOrderedList)
+
                     }
                     Log.d("jooan","the final form of position body is : "+positionBody+", "+positionHeader)
                     /*여기서 list view를 채웁니다.*/
 
-                    var tmpCount = 0 // 마감, 오픈 몇개씩 있는지
+
                     for( i in  0 until positionHeader.size){ // 주방, 서빙
-                        val tmpList : MutableList<String> =  ArrayList()
-                        val expandableListView : ExpandableListView = dailyWorkersListView
+                        val expandableView= layoutInflater.inflate(R.layout.expandable_listview, null, false)
+                        val headerView = layoutInflater.inflate(R.layout.expandable_header,null,false)
+                        val expandableListView : ExpandableListView? = expandableView.findViewById(R.id.expandableView)
+                        val textView : TextView = headerView.findViewById(R.id.headerView)
 
-                        Log.d("jooan","now the partChildrenCount is : "+partChildrenCount)
-                        for(j in 0 until partChildrenCount[i]){ // 마감, 오픈
-                            tmpList.add(partHeader[tmpCount])
-                            tmpCount+=1
+                        expandableListView?.setAdapter(ExpendableListAdapter(view.context,partNamesOrderedList[i],positionBody[i]))
+
+                        textView.setText(i.toString())
+                        headerListitems.add(textView)
+
+                        if(expandableListView!=null){
+                            expandableListItems.add(expandableListView)
+                            Log.d("jooan","I'm in the in statement don't worry")
                         }
-                        Log.d("jooan","now the tmpList is : "+tmpList)
-                        expandableListView.setAdapter(ExpendableListAdapter(context,tmpList,positionBody[i]))
-
-//                        if(expandableListView!=null) {
-//                            listItems.add(expandableListView)
-//                        }
                     }
-//                    var arrayAdapter : ArrayAdapter<Any> = ArrayAdapter(context!!,R.layout.fragment_home,listItems) // 일단 돌려볼려고 이리저리 하는 것이지만,,, !!는 조심할 것
-//                    list.adapter = arrayAdapter
+
+                    for( j in 0 until expandableListItems.size){
+//                        if (expandableListItems[j].getParent() != null) {
+//                            (expandableListItems[j].parent as ViewGroup).removeView(expandableListItems[j]) // <- fix
+//                        }
+//                        if (headerListitems[j].getParent() != null) {
+//                            (headerListitems[j].parent as ViewGroup).removeView(headerListitems[j]) // <- fix
+//                        }
+                        list.addView(headerListitems[j])
+                        list.addView(expandableListItems[j])
+
+                        println("hi")
+                    }
                 }
                 override fun onCancelled(p0: DatabaseError) {
                 }

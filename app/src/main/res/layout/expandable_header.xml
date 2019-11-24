@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:id="@+id/headerView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_radius"
+    android:textColor="@color/colorAccent"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="2dp"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
