@@ -19,6 +19,11 @@ import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 import kotlin.collections.ArrayList
+import android.opengl.ETC1.getWidth
+import android.widget.ExpandableListAdapter
+import android.widget.ExpandableListView
+
+
 
 
 
@@ -141,11 +146,29 @@ class HomeFragment : Fragment() {
                         val textView : TextView = headerView.findViewById(R.id.headerView)
 
                         expandableListView?.setAdapter(ExpendableListAdapter(view.context,partNamesOrderedList[i],positionBody[i]))
+                        expandableListView?.setOnGroupClickListener { parent, v, groupPosition, id ->
+                            setListViewHeight(parent, groupPosition)
+                            false
+                        }
 
-                        textView.setText(i.toString())
+//                        val listAdapter = expandableListView?.expandableListAdapter as ExpandableListAdapter
+//                        setListViewHeight(expandableListView, listAdapter.groupCount)
+
+                        textView.layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        )
+
+                        expandableListView?.layoutParams = LinearLayout.LayoutParams(
+                            LinearLayout.LayoutParams.WRAP_CONTENT,
+                            LinearLayout.LayoutParams.WRAP_CONTENT
+                        )
+
+                        textView.setText(positionHeader[i])
                         headerListitems.add(textView)
 
                         if(expandableListView!=null){
+
                             expandableListItems.add(expandableListView)
                             Log.d("jooan","I'm in the in statement don't worry")
                         }
@@ -169,6 +192,46 @@ class HomeFragment : Fragment() {
             })
 
         })
+    }
+
+    private fun setListViewHeight(
+        listView: ExpandableListView,
+        group: Int
+    ) {
+        val listAdapter = listView.expandableListAdapter as ExpandableListAdapter
+        var totalHeight = 0
+        val desiredWidth = View.MeasureSpec.makeMeasureSpec(
+            listView.width,
+            View.MeasureSpec.EXACTLY
+        )
+        for (i in 0 until listAdapter.groupCount) {
+            val groupItem = listAdapter.getGroupView(i, false, null, listView)
+            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
+
+            totalHeight += groupItem.measuredHeight
+
+            if (listView.isGroupExpanded(i) && i != group || !listView.isGroupExpanded(i) && i == group) {
+                for (j in 0 until listAdapter.getChildrenCount(i)) {
+                    val listItem = listAdapter.getChildView(
+                        i, j, false, null,
+                        listView
+                    )
+                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED)
+
+                    totalHeight += listItem.measuredHeight
+
+                }
+            }
+        }
+
+        val params = listView.layoutParams
+        var height = totalHeight + listView.dividerHeight * (listAdapter.groupCount - 1)
+        if (height < 10)
+            height = 200
+        params.height = height
+        listView.layoutParams = params
+        listView.requestLayout()
+
     }
 
 

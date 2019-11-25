@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
 import android.widget.TextView
+import android.widget.ExpandableListView
+
+
 
 class ExpendableListAdapter(var context : Context?, var header : MutableList<String>, var body: MutableList<MutableList<String>>) : BaseExpandableListAdapter(){
 
@@ -34,6 +37,7 @@ class ExpendableListAdapter(var context : Context?, var header : MutableList<Str
         }
         val title = convertView?.findViewById<TextView>(R.id.el_group_title)
         title?.text = getGroup(groupPosition)
+
         return convertView
     }
 

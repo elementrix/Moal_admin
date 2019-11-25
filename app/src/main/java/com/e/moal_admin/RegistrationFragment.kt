@@ -207,13 +207,13 @@ class RegistrationFragment : Fragment() {
             val checkSat = check_sat
             val checkSun = check_sun
 
-            if(checkMon.isChecked){dayList.add("mon")}
-            if(checkTue.isChecked){dayList.add("tue")}
-            if(checkWed.isChecked){dayList.add("wed")}
-            if(checkThr.isChecked){dayList.add("thr")}
-            if(checkFri.isChecked){dayList.add("fri")}
-            if(checkSat.isChecked){dayList.add("sat")}
-            if(checkSun.isChecked){dayList.add("sun")}
+            if(checkMon.isChecked){dayList.add("월")}
+            if(checkTue.isChecked){dayList.add("화")}
+            if(checkWed.isChecked){dayList.add("수")}
+            if(checkThr.isChecked){dayList.add("목")}
+            if(checkFri.isChecked){dayList.add("금")}
+            if(checkSat.isChecked){dayList.add("토")}
+            if(checkSun.isChecked){dayList.add("일")}
             //체크박스 뭐뭐 눌렀는지 확인작업 끝
 
             //직무이름 가져오기 (part_name.getText().toString())
