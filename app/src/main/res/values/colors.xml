@@ -7,4 +7,19 @@
     <color name="colorYellow">#FAAB1A</color>
     <color name="colorCardBack">#90EDF0F2</color>
     <color name="colorTransBack">#D8EDF2F0</color>
+
+    <color name="calendarColor">#659B9898</color>
+    <color name="none">#00EDF2F0</color>
+    <color name="white">#FFFFFF</color>
+    <color name="ptcardviewColor">#8FFFFFFF</color>
+
+    <color name="c1">#FABEBE</color>
+    <color name="c2">#313335</color>
+    <color name="c3">#A6EB8E</color>
+    <color name="c4">#7DD3F0</color>
+    <color name="c5">#ADD3FF</color>
+    <color name="c6">#8BFCEE</color>
+    <color name="c7">#D7BEFC</color>
+    <color name="c8">#D3B5E4</color>
+    <color name="c9">#ACA5A5</color>
 </resources>

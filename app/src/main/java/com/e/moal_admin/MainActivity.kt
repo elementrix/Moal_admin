@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -85,29 +87,29 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        btn_complete.setOnClickListener{
-            writeNewUser(userId = "userNo - "+ number ,name=id.text.toString(), email = password.text.toString())
-            number++
-            startActivity(intentCalendarActivity)
-        }
-
         register.setOnClickListener {
             startActivity(intentStoreRegistrationActivity)
         }
 
-        dirFire.child("StoreInfo").addValueEventListener(object: ValueEventListener{
-            override fun onDataChange(p0: DataSnapshot) {
-                val info: StoreInfo? = p0.getValue(StoreInfo::class.java)
-                if (info != null) {
-                    Log.d("Jooan","Storinfo: name: "+info.name+" Address: "+info.Address )
-                }else{
-                    Log.d("Jooan","Storinfo fail")
+        btn_complete.setOnClickListener {
+            val userid = id.text.toString()
+            val userpw = password.text.toString()
+            if (userid.isEmpty() || userpw.isEmpty()){
+                Toast.makeText(this, "이메일과 비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(userid, userpw)
+                .addOnCompleteListener {
+                    if (it.isSuccessful){
+                        startActivity(intentCalendarActivity)
+                    }
                 }
-            }
-            override fun onCancelled(p0: DatabaseError) {
+                .addOnFailureListener {
+                    Toast.makeText(this, "이메일 또는 비밀번호를 다시 입력하세요.", Toast.LENGTH_SHORT).show()
+                }
 
-            }
-        })
+
+        }
 
     }
 

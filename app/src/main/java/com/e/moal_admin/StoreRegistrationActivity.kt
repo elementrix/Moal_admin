@@ -184,9 +184,13 @@ class StoreRegistrationActivity : AppCompatActivity() {
                     filledCheck.setText("가게이름을 기입해 주세요")
                 }else{
                     filledCheck.setText("")
-                    writeNewStore(storeName.getText().toString().trim(), storeAddress.getText().toString().trim(), storeName.getText().toString().trim())
+                    var storeaddress = storeAddress.getText().toString().trim()
+                    var storename = storeName.getText().toString().trim()
                     toast("주소등록이 완료되었습니다.")
-                    startActivity(intent)
+                    val UserRegistrationActivityIntent : Intent = Intent(this, UserRegistrationActivity::class.java)
+                    intent.putExtra("storeaddressIs", storeaddress)
+                    intent.putExtra("storenameIs", storename)
+                    startActivity(UserRegistrationActivityIntent)
                 }
             }
         }

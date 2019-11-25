@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="33dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="6.5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="3.5dp"
+    card_view:cardBackgroundColor="#659B9898"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="4dp"
+    card_view:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        card_view:layout_constraintBottom_toTopOf="@+id/cardview_waveSign"
+        card_view:layout_constraintTop_toTopOf="@+id/cardview_waveSign"
+
+        >
+
+
+        <TextView
+            android:id="@+id/cardView_position"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="일자리이름"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_partName"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardView_partName"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="오픈미들"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_position"
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_day"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardView_day"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="월화수"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_partName"
+
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_people"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardView_people"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:text="남은인원"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_day"
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_startTime"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardView_startTime"
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:text="시작시간"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_people"
+            card_view:layout_constraintRight_toLeftOf="@id/cardview_waveSign"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardview_waveSign"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:text="~"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_startTime"
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_endTime"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/cardView_endTime"
+            android:layout_width="49dp"
+            android:layout_height="wrap_content"
+            android:text="끝난시간"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardview_waveSign"
+            card_view:layout_constraintRight_toLeftOf="@id/cardView_checkBox"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/cardView_checkBox"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintLeft_toRightOf="@id/cardView_endTime"
+            card_view:layout_constraintRight_toRightOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
