@@ -84,6 +84,7 @@ class CalendarActivity :AppCompatActivity(), NavigationView.OnNavigationItemSele
                     .commit()
             }
             R.id.notification -> {
+//                startActivity(intentScheduleActivity)
                 title.setText("Notification")
                 notificationFragment = NotificationFragment()
                 supportFragmentManager

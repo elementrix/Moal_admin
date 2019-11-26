@@ -5,67 +5,118 @@
     android:layout_height="match_parent"
     tools:context=".NotificationFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#344955">
 
-        <ImageButton
-            android:id="@+id/button_personalSchedule"
-            android:layout_width="30dp"
-            android:layout_height="28dp"
-            android:background="@null"
-            android:padding="0dp"
-            android:src="@drawable/plus_foreground" />
+<!--        <TextView-->
+<!--            android:id="@+id/mon"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="MON"-->
+<!--            app:layout_constraintLeft_toLeftOf="@id/soon"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/tues" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tues"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="TUE"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/mon"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/wed" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/wed"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="WED"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/tues"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/thur" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/thur"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="THR"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/wed"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/fri" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/fri"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="FRI"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/thur"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/sat" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/sat"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="SAT"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/fri"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/sun" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/sun"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="23dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/line"-->
+<!--            android:gravity="center_horizontal"-->
+<!--            android:text="SUN"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/sat"-->
+<!--            app:layout_constraintRight_toRightOf="parent" />-->
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_weight="6"
-            android:background="@color/calendarColor"
-            android:orientation="vertical">
-
-            <include
-                android:id="@+id/topView"
-                layout="@layout/day_calendar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/worker_list"-->
+<!--            android:layout_width="427dp"-->
+<!--            android:layout_height="480dp"-->
+<!--            tools:layout_editor_absoluteX="1dp"-->
+<!--            tools:layout_editor_absoluteY="178dp" />-->
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/store_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:orientation="horizontal"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/accept_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/accentbutton"-->
+<!--            android:text="알바 확정"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="bold"-->
+<!--            tools:layout_editor_absoluteX="295dp"-->
+<!--            tools:layout_editor_absoluteY="667dp" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/time_list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3" />
-
-        <Button
-            android:id="@+id/request_button"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:background="@drawable/accentbutton"
-            android:text="스케줄 신청"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            />
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

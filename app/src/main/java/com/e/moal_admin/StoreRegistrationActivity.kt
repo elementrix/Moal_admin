@@ -187,6 +187,7 @@ class StoreRegistrationActivity : AppCompatActivity() {
                     var storeaddress = storeAddress.getText().toString().trim()
                     var storename = storeName.getText().toString().trim()
                     toast("주소등록이 완료되었습니다.")
+                    writeNewStore(address = storeaddress, name = storename)
                     val UserRegistrationActivityIntent : Intent = Intent(this, UserRegistrationActivity::class.java)
                     intent.putExtra("storeaddressIs", storeaddress)
                     intent.putExtra("storenameIs", storename)
@@ -210,8 +211,8 @@ class StoreRegistrationActivity : AppCompatActivity() {
         }
     }
 
-    private fun writeNewStore (userId: String, address: String, name: String){
+    private fun writeNewStore (address: String, name: String){
         val storeInfo = StoreInfo(address,name)
-        database.child(userId).child("StoreInfo").setValue(storeInfo)
+        database.child("stores").child(name).child("StoreInfo").setValue(storeInfo)
     }
 }

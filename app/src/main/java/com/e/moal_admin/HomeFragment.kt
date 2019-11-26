@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
     var positionNames :String = "" // 마찬가지
     var partNames : String = "" // 마찬가지2
 
-    val dirFire: DatabaseReference = rootRef.child("노랑통닭 홍대점") // **수정필요**
+    val dirFire: DatabaseReference = rootRef.child("stores").child("노랑통닭 홍대점") // **수정필요**
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,6 +94,8 @@ class HomeFragment : Fragment() {
                     expandableListItems.clear()
 
                     childrenCount = p0.childrenCount // 서빙, 주방등등이 몇개인지
+
+                    Log.d("jooan", "position count is :"+childrenCount)
 
                     for (x in p0.children){ // 서빙, 주방 등등 목록을 읽어오고자 하는 부분
                         val partBody : MutableList<MutableList<String>>  = ArrayList() // 어차피 다른 날을 클릭하면 바뀔애들이니 더 상위레벨에서 정의할 필요 없음, 또한 매번 새로 만들어서 넣어줘야 하는 소모적인 녀석이니 여기에서 선언
