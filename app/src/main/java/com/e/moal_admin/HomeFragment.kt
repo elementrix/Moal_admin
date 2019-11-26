@@ -32,12 +32,13 @@ import android.widget.ExpandableListView
  */
 class HomeFragment : Fragment() {
 
-    var rootRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+
 
     var childrenCount : Long = 0 // childrenCount의 경우 DB에서 읽어온 자료가 저장되는 자료인데 onViewCreated 이후에도 살아남아야 하므로 밖에다가 저장
     var positionNames :String = "" // 마찬가지
     var partNames : String = "" // 마찬가지2
 
+    var rootRef: DatabaseReference = FirebaseDatabase.getInstance().getReference()
     val dirFire: DatabaseReference = rootRef.child("stores").child("노랑통닭 홍대점") // **수정필요**
 
     override fun onCreateView(

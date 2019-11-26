@@ -219,13 +219,14 @@ class RegistrationFragment : Fragment() {
             //직무이름 가져오기 (part_name.getText().toString())
             writeNewJob(timeList,dayList, part_name.getText().toString())
 
-//            val navigationView : NavigationView = (activity as MainActivity).findViewById(R.id.nav_view)
-//            navigationView.menu.findItem(R.id.home).isChecked = true
-//
-//            // RecipeFragment로 화면이동
-//            val transaction : FragmentTransaction = (activity as MainActivity).supportFragmentManager.beginTransaction()
-//            transaction.add(R.id.Frame_layout, HomeFragment())
-//            transaction.commit()
+            val navigationView : NavigationView = (activity as CalendarActivity).findViewById(R.id.nav_view)
+            navigationView.menu.findItem(R.id.home).isChecked = true
+
+            // HomeFragment로 화면이동
+            val transaction : FragmentTransaction = (activity as CalendarActivity).supportFragmentManager.beginTransaction()
+            transaction.add(R.id.Frame_layout, HomeFragment())
+            toast("일정등록이 완료되었습니다")
+            transaction.commit()
         }
         //전체 완료 눌렀을때 끝
     }
@@ -238,7 +239,7 @@ class RegistrationFragment : Fragment() {
 
         for (i in jobInfo.workdays){  // 요일 수만큼 반복
             for(j in jobInfo.jobTime){ // 파트수만큼 반복
-                database.child("노랑통닭 홍대점").child("WorkingPart").child(i).child(jobInfo.jobName).child(j.partName).setValue(j)
+                database.child("stores").child("노랑통닭 홍대점").child("WorkingPart").child(i).child(jobInfo.jobName).child(j.partName).setValue(j)
             }
         }
 

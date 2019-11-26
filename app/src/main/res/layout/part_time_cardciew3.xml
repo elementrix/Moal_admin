@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="33dp"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="6.5dp"
     android:layout_marginRight="5dp"
     android:layout_marginBottom="3.5dp"
-    card_view:cardBackgroundColor="#659B9898"
+    card_view:cardBackgroundColor="@color/colorYellow"
     card_view:cardCornerRadius="8dp"
     card_view:cardElevation="4dp"
     card_view:cardUseCompatPadding="false">
@@ -18,6 +17,7 @@
         android:id="@+id/Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical"
         card_view:layout_constraintBottom_toTopOf="@+id/cardview_waveSign"
         card_view:layout_constraintTop_toTopOf="@+id/cardview_waveSign">
@@ -28,12 +28,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="일자리이름"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            card_view:layout_constraintBottom_toBottomOf="parent"
 
+            card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toLeftOf="parent"
             card_view:layout_constraintRight_toLeftOf="@id/cardView_partName"
             card_view:layout_constraintTop_toTopOf="parent" />
@@ -42,35 +43,13 @@
             android:id="@+id/cardView_partName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="오픈미들"
             android:textColor="@color/white"
             android:textSize="15sp"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintLeft_toRightOf="@id/cardView_position"
-            card_view:layout_constraintRight_toLeftOf="@id/cardView_workerName"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/cardView_workerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="노동자이름"
-            android:textColor="@color/colorYellow"
-            android:textSize="18sp"
-            android:textStyle="normal|bold"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintLeft_toRightOf="@id/cardView_partName"
-
-            card_view:layout_constraintRight_toLeftOf="@id/cardView_checkBox"
-            card_view:layout_constraintTop_toTopOf="parent" />
-
-        <CheckBox
-            android:id="@+id/cardView_checkBox"
-            android:layout_width="35dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            card_view:layout_constraintBottom_toBottomOf="parent"
-            card_view:layout_constraintLeft_toRightOf="@id/cardView_workerName"
             card_view:layout_constraintRight_toRightOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 

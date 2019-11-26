@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
+        android:text="sgh04069@naver.com"
         android:textColor="#EDF0F2"
         android:textColorHint="#90EDF0F2"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +31,8 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="비밀번호"
-        android:inputType="textPersonName"
+        android:text="123123"
+        android:inputType="textPassword"
         android:textColor="#EDF2F0"
         android:textColorHint="#90EDF0F2"
         app:layout_constraintStart_toStartOf="@+id/id"
@@ -87,5 +89,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.112"
         app:srcCompat="@drawable/logo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

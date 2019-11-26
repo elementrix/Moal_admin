@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,110 +12,170 @@
         android:layout_height="match_parent"
         android:background="#344955">
 
-<!--        <TextView-->
-<!--            android:id="@+id/mon"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="MON"-->
-<!--            app:layout_constraintLeft_toLeftOf="@id/soon"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/tues" />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tues"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="TUE"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/mon"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/wed" />-->
+        <TextView
+            android:id="@+id/mon"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="월"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/tue"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/wed"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="WED"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/tues"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/thur" />-->
+        <TextView
+            android:id="@+id/tue"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="화"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/mon"
+            app:layout_constraintRight_toLeftOf="@id/wed"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/thur"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="THR"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/wed"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/fri" />-->
+        <TextView
+            android:id="@+id/wed"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="수"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/tue"
+            app:layout_constraintRight_toLeftOf="@id/thr"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/fri"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="FRI"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/thur"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/sat" />-->
+        <TextView
+            android:id="@+id/thr"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="목"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/wed"
+            app:layout_constraintRight_toLeftOf="@id/fri"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/sat"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="SAT"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/fri"-->
-<!--            app:layout_constraintRight_toLeftOf="@id/sun" />-->
+        <TextView
+            android:id="@+id/fri"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="금"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/thr"
+            app:layout_constraintRight_toLeftOf="@id/sat"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/sun"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="23dp"-->
-<!--            android:layout_weight="1"-->
-<!--            android:background="@drawable/line"-->
-<!--            android:gravity="center_horizontal"-->
-<!--            android:text="SUN"-->
-<!--            app:layout_constraintLeft_toRightOf="@id/sat"-->
-<!--            app:layout_constraintRight_toRightOf="parent" />-->
+        <TextView
+            android:id="@+id/sat"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="토"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/fri"
+            app:layout_constraintRight_toLeftOf="@id/sun"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
+        <TextView
+            android:id="@+id/sun"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/notification_day_text"
+            android:gravity="center_horizontal"
+            android:text="일"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/position_indicate_txt"
+            app:layout_constraintLeft_toRightOf="@id/sat"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/worker_list"-->
-<!--            android:layout_width="427dp"-->
-<!--            android:layout_height="480dp"-->
-<!--            tools:layout_editor_absoluteX="1dp"-->
-<!--            tools:layout_editor_absoluteY="178dp" />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/position_list"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:foregroundGravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/worker_list"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/position_indicate_txt" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/worker_list"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="130dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/position_list" />
 
-<!--        <Button-->
-<!--            android:id="@+id/accept_button"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@drawable/accentbutton"-->
-<!--            android:text="알바 확정"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="16sp"-->
-<!--            android:textStyle="bold"-->
-<!--            tools:layout_editor_absoluteX="295dp"-->
-<!--            tools:layout_editor_absoluteY="667dp" />-->
+        <Button
+            android:id="@+id/accept_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/accentbutton"
+            android:text="알바 확정"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.96"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.98" />
+
+        <TextView
+            android:id="@+id/day_indicate_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text=" # 찾을 요일을 클릭하세요"
+            android:textColor="@color/colorYellow"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/mon"
+            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/position_indicate_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="# 포지션-파트를 클릭후, 알바를 확정하세요"
+            android:textColor="@color/colorYellow"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/position_list"
+            app:layout_constraintHorizontal_bias="0.25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mon" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
