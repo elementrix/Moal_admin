@@ -13,7 +13,7 @@
         android:background="#344955">
 
 
-        <TextView
+        <Button
             android:id="@+id/mon"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -28,7 +28,7 @@
             app:layout_constraintRight_toLeftOf="@id/tue"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/tue"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -42,7 +42,7 @@
             app:layout_constraintRight_toLeftOf="@id/wed"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/wed"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -56,7 +56,7 @@
             app:layout_constraintRight_toLeftOf="@id/thr"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/thr"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -70,7 +70,7 @@
             app:layout_constraintRight_toLeftOf="@id/fri"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/fri"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -84,7 +84,7 @@
             app:layout_constraintRight_toLeftOf="@id/sat"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/sat"
             android:layout_width="0dp"
             android:layout_height="23dp"
@@ -98,7 +98,7 @@
             app:layout_constraintRight_toLeftOf="@id/sun"
             app:layout_constraintTop_toBottomOf="@id/day_indicate_txt" />
 
-        <TextView
+        <Button
             android:id="@+id/sun"
             android:layout_width="0dp"
             android:layout_height="23dp"

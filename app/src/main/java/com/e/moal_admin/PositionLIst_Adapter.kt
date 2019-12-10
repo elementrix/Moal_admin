@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.part_time_cardciew3.view.*
 
-class PositionListAdapter(val personList:MutableList<PositionApplyPerson>): RecyclerView.Adapter<PositionListAdapter.ViewHolder>(){
+class PositionListAdapter(val positionList:MutableList<PositionApplyPerson>): RecyclerView.Adapter<PositionListAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PositionListAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return ViewHolder(inflater, parent)
     }
 
     override fun getItemCount(): Int {
-        return personList.size
+        return positionList.size
     }
 
     override fun onBindViewHolder(holder: PositionListAdapter.ViewHolder, position: Int) {
-        val data: PositionApplyPerson = personList[position]
+        val data: PositionApplyPerson = positionList[position]
         holder.bind(data)
     }
 
